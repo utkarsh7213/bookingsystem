@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500&family=Nunito:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800&display=swap');
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  
+#mobileMenuTrigger {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    transform: scale(0.8);
+  }
+  #mobileMenuTrigger span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #000000;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+  #mobileMenuTrigger span:nth-child(1) {
+    top: 0px;
+  }
+  #mobileMenuTrigger span:nth-child(2),
+  #mobileMenuTrigger span:nth-child(3) {
+    top: 18px;
+  }
+  #mobileMenuTrigger span:nth-child(4) {
+    top: 36px;
+  }
+  #mobileMenuTrigger.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+  #mobileMenuTrigger.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+  #mobileMenuTrigger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  #mobileMenuTrigger.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+
+  #mobileMenu {
+  
+    
+
+    z-index: 9999;
+   
+  	transform: translateX(-100%);
+  	transition: transform 300ms linear;
+  	will-change: transform;
+  }
+  #mobileMenu.open {
+    transform: none;
+    transition: transform 300ms linear;
+  }
+  #mobileMenu ul {
+    padding: 0;
+    margin: 0;
+  }
+  #mobileMenu ul li .primaryButton {
+    display: inline-block;
+    
+    font-size: 1.25rem;
+  }
+ 
+
