@@ -1,0 +1,108 @@
+<div class="py-2 bg-[#] flex items-center justify-between px-8 mt-2 md:hidden">
+  <img width="50" src="/images/logo.png" alt="" />
+  <i onclick="myFunction()" class="fa-solid fa-bars text-2xl cursor-pointer"></i>
+</div>
+<div id="myDIV"
+  class="hidden  md:block absolute md:relative h-screen w-full md:w-[30%]  border-gray-300 border-0 border-r  md:h-full px-3 top-0 bg-gray-200 md:bg-transparent">
+  <div class="flex flex-col justify-center items-center my-6 relative">
+    <div onclick="myFunction()"
+      class="bg-gray-400 rounded-3xl p-2 top-0 right-4 text-white absolute md:hidden cursor-pointer">
+      Close Menu
+    </div>
+    <div class="w-20 h-20 rounded-full bg-black">
+      <img class="w-20 h-20 rounded-full object- object-center" src="" alt="" id="profileDP"/>
+    </div>
+    <div class="mt-2">
+      <span id="username" class="text-gray-900 font-semibold">  </span>
+    </div>
+  </div>
+
+  <div class="h-px w-full bg-gray-300"></div>
+  <div class="py-3.5">
+    <a href="/profile/my_account" class="group">
+      <div class="flex justify-between">
+        <div class="flex items-center space-x-3">
+          <i class="fa-regular fa-user text-2xl"></i>
+          <span class="font-semibold group-hover:text-gray-700">My Account</span>
+        </div>
+        <div class="">
+          <i class="fa-solid fa-chevron-right text-xs transition group-hover:-translate-x-3"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="h-px w-full bg-gray-300"></div>
+  <div class="py-3.5">
+    <a href="/profile/my_trips" class="group">
+      <div class="flex justify-between">
+        <div class="flex items-center space-x-3">
+          <i class="fa-solid fa-map-location text-2xl"></i>
+          <span class="font-semibold group-hover:text-gray-700">My Trip</span>
+        </div>
+        <div class="">
+          <i class="fa-solid fa-chevron-right text-xs transition group-hover:-translate-x-3"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="h-px w-full bg-gray-300"></div>
+  <div class="py-3.5">
+    <a href="/profile/my_bookings" class="group">
+      <div class="flex justify-between">
+        <div class="flex items-center space-x-3">
+          <i class="fa-regular fa-id-card text-2xl"></i>
+          <span class="font-semibold group-hover:text-gray-700">My Bookings</span>
+        </div>
+        <div class="">
+          <i class="fa-solid fa-chevron-right text-xs transition group-hover:-translate-x-3"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="h-[0.8px] w-full bg-gray-300"></div>
+  <div class="py-3.5">
+    <a href="/profile/settings" class="group">
+      <div class="flex justify-between">
+        <div class="flex items-center space-x-3">
+          <i class="fa-solid fa-gear text-2xl"></i>
+          <span class="font-semibold group-hover:text-gray-700">Settings</span>
+        </div>
+        <div class="">
+          <i class="fa-solid fa-chevron-right text-xs transition group-hover:-translate-x-3"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="h-[0.8px] w-full bg-gray-300"></div>
+  <div class="flex justify-center my-3 focus-within:scale-90">
+    <a href="/logout"
+      class="bg-gray-300 drop-shadow-lg rounded-md font-semibold p-1 px-24 hover:bg-gray-200 transition duration-300">Log
+      out</a>
+  </div>
+</div>
+
+<script>
+  const apiUrl = '/user';
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      document.getElementById('username').innerText = data.name.username
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+
+  function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>

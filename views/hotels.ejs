@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card hotel</title>
+    <link rel="stylesheet" href="/styles/output.css">
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
+
+    <script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+    <link data-minify="1" rel="stylesheet" id="bootstrap-css" href="/styles/design1.css" media="all">
+    <link data-minify="1" rel="stylesheet" id="html5blank-css" href="/styles/design2.css" media="all">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+
+    <div id="tabs-wrapper">
+        <% if(user_loggedIn) { %>
+            <%- include('./components/navbar', {loggedIn : user_loggedIn}) %>
+
+                <% } else { %>
+                    <%- include('./components/navbar', {loggedIn : '' }) %>
+                        <% } %>
+
+
+                            <div class="tab-content active" data-id="cards">
+                                <div class="container-fluid px-2 px-md-5 d-flex" id="trip-listing-wrapper">
+
+                                    <!-- SIDEBAR WITH FILTERING AND FOLLOW US OPTIONS -->
+
+                                    <%- include('./components/hotel_filter'); %>
+
+
+                                        <!-- SIDEBAR WITH FILTERING AND FOLLOW US OPTIONS END -->
+
+                                        <div id="trip-listing">
+
+                                            <!-- TRIP CARDS -->
+
+                                            <%- include('./components/hotel_cards') %>
+
+                                        </div>
+                                </div>
+                            </div>
+
+    </div>
+
+    <script src="/scripts/hotel_filters.js"></script>
+    <script src="/scripts/sort_toggle.js"></script>
+</body>
+
+</html>

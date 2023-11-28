@@ -1,0 +1,217 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="/styles/style.css">
+  <script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <% if(msg) { %>
+    <h2> <%- msg %> </h2>
+    <% } %>
+
+      <div id="msgbox" style="display: none;"
+        class=" rounded-lg bg-gray-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <p id="login_msg" class="p-2"> </p>
+      </div>
+
+
+      <div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-transparent py-10">
+
+        <!-- Login component -->
+        <div class="flex shadow-md">
+
+          <!-- Login form -->
+          <div class="flex flex-wrap content-center justify-center rounded-l-md bg-white"
+            style="width: 24rem; height: 32rem;">
+
+            <div class="w-72">
+              <!-- Heading -->
+              <div class="text-2xl -mt-2 flex space-x-1 items-center cursor-pointer -ml-6" id="closePopup">
+                <i class="fa-solid fa-xmark text-gray-700"></i>
+                <p class="text-sm">Close</p>
+              </div>
+
+
+              <!-- Form -->
+              <form class="mt-4 form">
+                <div class="w-full p-2 justify-start flex flex-col">
+                  <div id="whoobe-7izhv" class=" flex flex-row">
+                    <span id="whoobe-plfl9"
+                      class="z-highest rounded-l-lg  w-12 h-12 px-3 flex justify-center items-center text-2xl text-gray-400 border border-r-0"
+                      mode="render" block="">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 26 26" class="iconify iconify--wpf">
+                        <path
+                          d="M16.563 15.9c-.159-.052-1.164-.505-.536-2.414h-.009c1.637-1.686 2.888-4.399 2.888-7.07c0-4.107-2.731-6.26-5.905-6.26c-3.176 0-5.892 2.152-5.892 6.26c0 2.682 1.244 5.406 2.891 7.088c.642 1.684-.506 2.309-.746 2.397c-3.324 1.202-7.224 3.393-7.224 5.556v.811c0 2.947 5.714 3.617 11.002 3.617c5.296 0 10.938-.67 10.938-3.617v-.811c0-2.228-3.919-4.402-7.407-5.557z"
+                          fill="currentColor">
+                        </path>
+                      </svg>
+                    </span>
+                    <input value=""
+                      class="border border-gray-200 rounded-r-lg outline-none focus:ring-1 ring-blue-400 w-full pl-1"
+                      id="user_or_email" name="user_or_email" required placeholder="E-mail or Username">
+                  </div>
+
+                  <div id="whoobe-l6k6r" class="my-4 flex flex-row">
+                    <span id="whoobe-4occ6"
+                      class="z-highest rounded-l-lg  w-12 h-12 px-3 flex justify-center items-center text-2xl text-gray-400 border border-r-0"
+                      mode="render" block="">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 32 32" class="iconify iconify--carbon">
+                        <path
+                          d="M21 2a8.998 8.998 0 0 0-8.612 11.612L2 24v6h6l10.388-10.388A9 9 0 1 0 21 2zm0 16a7.013 7.013 0 0 1-2.032-.302l-1.147-.348l-.847.847l-3.181 3.181L12.414 20L11 21.414l1.379 1.379l-1.586 1.586L9.414 23L8 24.414l1.379 1.379L7.172 28H4v-3.172l9.802-9.802l.848-.847l-.348-1.147A7 7 0 1 1 21 18z"
+                          fill="currentColor">
+                        </path>
+                        <circle cx="22" cy="10" r="2" fill="currentColor">
+                        </circle>
+                      </svg>
+                    </span>
+                    <input type="password" value=""
+                      class="border border-gray-200 rounded-r-none  border-r-0 outline-none focus:ring-1 ring-blue-300 w-full pl-1"
+                      id="password" name="password" placeholder="Password" required>
+                    <div
+                      class="border border-l-0 border-r rounded-r-lg flex items-center text-gray-400 px-4 cursor-pointer">
+                      <i class="fa-solid fa-eye" id="eye"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-between ">
+                    <div class=" flex flex-wrap content-center">
+                      <input id="remember" type="checkbox" class="mr-1 checked:bg-purple-700" /> <label for="remember"
+                        class="mr-auto text-base font-semibold text-gray-500">Remember me</label>
+                    </div>
+                    <div class="">
+                      <button id="login_btn"
+                        class="px-4 py-2 rounded bg-[#3F80A9] text-white hover:bg-blue-700 my-4 w-[100px]">Login</button>
+                    </div>
+                  </div>
+                  <div class="flex justify-between items-center ">
+                    <div class=" flex flex-wrap content-center">
+                      <a href="/register" class="text-[#3F80A9] text-">Register now</a>
+                    </div>
+                    <div class="">
+                      <a href="/forgot" class="text-gray-500 text-sm">Forgot Password?</a>
+
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="flex items-center space-x-4 justify-center">
+                  <div class="h-px w-28 bg-gray-200"></div>
+                  <p class="text-gray-400">or</p>
+                  <div class="h-px w-28 bg-gray-200"></div>
+
+                </div>
+              </form>
+              <div class="py-4 flex flex-col space-y-4">
+                <button
+                  class="flex items-center flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md">
+                  <img class="w-5 mr-2"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABcCAMAAADUMSJqAAAAY1BMVEUYd/L///8NdPJTj/QAcfIAbPH7/v8Ab/E4gvO/1Pp6qPYAafHv9v7h6/2uxfjF2Pva5v1mnPWFrvcaevKhwPmOtfdqn/W4z/qWuvhVk/Q1hfOKsfdjmfV1pfZMjPQlfvPM3vsobh/GAAADrUlEQVRoga2a6aLiIAyFEVnsNrbWtV7n+v5POVRrrTSBQ53zt/I1AgkhqVgBKuvTOb90rXBqu0t+PtUlMk7EfmC217XUVkkpBkmprJbr69Z8BzdZoxxXEHJvUE0W5ofg1bXVJHh8gW6v1SJ43WgVIj+ldFMnw6tj2Oip+UfOehpudhawerTe7ui5J+GZsDi6lxUZCDc5OiNvSZ0Txs/hVZswI2+pdj7zM3gmk80ejJezqfHh+2IZulexD8MPejlbCH0IwXdfsR19x8O/s3tu+xS+/5rt6HsaniWtJbenioyCV2gsUbbQ4rdrW10U2lp/68pqDjctBJe6252qpzcaU95P+1v3OVC2ZgbPEb+URXOfufkfLxCp3IdnyGLa7u6TCbjQ2SfcsAs0UZETaAIuhfmA74AYq88kew4XdjeFVwDb0nZTcGGrCbyJr6bsGDYFV8c3vAZW07LnMAEXuh7hTXw1ZcOxSfjz5z28AgzXfAJBwYWuBvgVmPENy6bh6vqEmzZuuDokwkUfBATmnHrumvdD8/NQR65Y76YCWk4h/ZS56rRLfJ+iRzQ93CAR69cLV3U8R1DGwbeAd8q/nuGb+L+1WwcH9oqQa2++gUPL7RexWiNT7sEPmEGiRA4gH36BBpUCiSszOPJvnVOLE5ItL4LbkzhDZ+cSuDqLfMmcQ3CZC2xtFsEvogN+tgzu0EBIXAoPo+WoGfwt5DWENm/9fMJ/Jo82i9i6dNngS59wM3lQLoUjqgNeyM86COcPsjawFUH4mbW8CzgRCL9xAOdEvPuDcPZQcu7PBy4QzhrnAhcfcjF4ya6nC7n8YYHB7/z4OnDMYXA63+rljjk+CGFw9qLWH9B8aoHB2a38SC3YpAiD05miGJIiNp2Tt3yUl+Qexgc3ZvCQzvGJqFQvWS+d+2tfT9jt8ExEkRR6wUk0pNBA8r8APiT/QCqaDn9dW4ALVzp8vHDF7xbJ8PdVMX7JTYZPLrmrY2TWU+HT63m0sJAK/ygsxEoiifDPkkismJMG94s5ETdNg/tlqEgBLQk+L6CFS38pcKr0FyxaJsGJomWw3JoAp8utoUIxDucKxYESNwznS9x8cR6Fh4rzrO0gPNxW4BoiGDzWEGFaOQgcaOXQTSgADjWhyPZZFI62z1ZE4y8Gxxt/q3nLMgxPa1mu/GZrCJ7cbO01bRPz8EVt4of1Y4ObgS9vcPcy2fHRmifgfWv++EVr/snvPyoo/Cy3+A8fFQwqa2+nZdjnEP8A/SsrcWyWZckAAAAASUVORK5CYII=">
+                  Login in with Facebook
+                </button>
+                <button
+                  class="flex items-center flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md">
+                  <img class="w-5 mr-2"
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgZmlsbD0ibm9uZSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2EpIj48bWFzayBpZD0iYiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjM2IiB4PSIwIiB5PSIwIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBzdHlsZT0ibWFzay10eXBlOmFscGhhIj48Y2lyY2xlIGN4PSIxOCIgY3k9IjE4IiByPSIxOCIgZmlsbD0iI2ZmZiIvPjwvbWFzaz48ZyBtYXNrPSJ1cmwoI2IpIj48cGF0aCBmaWxsPSIjRkMzRjFEIiBkPSJNMCAwaDM2djM2SDB6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE4LjQ4OCAxOS44NmMxLjA1MiAyLjMwNCAxLjQwMyAzLjEwNSAxLjQwMyA1Ljg3MnYzLjY3aC0zLjc1N3YtNi4xODdMOS4wNDcgNy44MDFoMy45Mmw1LjUyMSAxMi4wNTlaTTIzLjEyMSA3LjhsLTQuNTk1IDEwLjQ0M2gzLjgxOUwyNi45NTMgNy44aC0zLjgzMloiLz48L2c+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTAgMGgzNnYzNkgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg==">
+                  Login in with Yandex
+                </button>
+                <button
+                  class="flex flex-wra items-center justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md">
+                  <img class="w-5 mr-2"
+                    src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA">
+                  Login in with Google
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Login banner -->
+          <div class="md:flex flex-wrap content-center justify-center rounded-r-md hidden"
+            style="width: 28rem; height: 32rem;">
+            <img class="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md" src="/images/02.jpg">
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <script>
+        let password = document.getElementById('password');
+        $(document).ready(function () {
+          $("#login_btn").click(function (event) {
+            event.preventDefault();
+            var form_data = {
+              user_or_email: $("#user_or_email").val(), password: $("#password").val()
+            };
+            $.ajax({
+              type: "POST",
+              url: "/auth/auth_login",
+              data: JSON.stringify(form_data),
+              contentType: "application/json",
+              success: function (response) {
+                if (response.incorrect) {
+                  password.style.boxShadow = '0 0 5px red'; password.style.border = 'none';
+                  return false;
+                }
+                else {
+                  password.style.boxShadow = ''; password.style.border = '';
+                  const login_msg = document.getElementById('login_msg');
+                  const msg_div = document.getElementById('msgbox');
+                  msg_div.style.display = "block";
+                  login_msg.textContent = 'Logging In Please wait.. ';
+
+                  setTimeout(function () {
+                    // document.cookie = document.getElementById('user_or_email').value;
+                    window.location.href = '/';
+                  }, 2000)
+
+                  return true;
+                }
+              },
+              error: function (xhr, textStatus, errorThrown) {
+                console.error("Error:", textStatus, errorThrown);
+              }
+            });
+          });
+        });
+
+        $(function () {
+
+          $('#eye').click(function () {
+
+            if ($(this).hasClass('fa-eye-slash')) {
+
+              $(this).removeClass('fa-eye-slash');
+
+              $(this).addClass('fa-eye');
+
+              $('#password').attr('type', 'text');
+
+            } else {
+
+              $(this).removeClass('fa-eye');
+
+              $(this).addClass('fa-eye-slash');
+
+              $('#password').attr('type', 'password');
+            }
+          });
+        });
+      </script>
+
+</body>
+
+</html>

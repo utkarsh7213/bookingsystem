@@ -1,0 +1,106 @@
+<style>
+  .roww {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+  }
+
+  /* RATINGS CSS */
+  .rating {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+
+  .stars {
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .star {
+    color: #ccc;
+    transition: color 0.2s;
+    margin: 0 5px;
+    display: inline-block;
+  }
+  .dollar_sign {
+    color: #ccc;
+    /* margin: 0 2px; */
+    display: inline-block;
+  }
+
+  .star:hover,
+  .star.active, .dollar_sign.active {
+    color: #000000;
+  }
+
+</style>
+<div class="roww">
+
+
+  <% if(hotels_res.length > 0) { %>
+  <% for(let i = 0; i < hotels_res.length; i++) { %>
+    <div class="destination" data-amenities="<%- hotels_res[i].amenities %>" data-popular="<%- hotels_res[i].popular_with %>"
+    data-star="<%- hotels_res[i].ratings %>" data-destination="<%- hotels_res[i].loc_ation %>" data-duration="<%- hotels_res[i].duration %>"
+    data-date="<%- hotels_res[i].duration %>" data-price="<%- hotels_res[i].charges %>" data-dollar="<%- hotels_res[i].dollar %>" style="order:999999">
+    <div class="w-[290px] h-[180px] relative">
+      <img src="/images/tour.jpeg" alt="" class="w-[290px] h-[180px] object-cover" />
+
+      <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+        <span class="uppercase text-white"><%- hotels_res[i].loc_ation %></span>
+      </div>
+    </div>
+    <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+      <div class="py-2 px-2 space-y-3">
+        <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+          <%- hotels_res[i].hotel_name %>
+        </h1>
+
+        <p class="text-[#2f327a] pr-4">
+          <%- hotels_res[i].about %>
+        </p>
+      </div>
+
+      <div class="flex justify-between py-3 px-2">
+        <div class="flex space-x-1 items-center font-bold text-xl">
+
+          <div class="rating" data-star="<%- hotels_res[i].ratings %>">
+            <div class="stars">
+              <span class="star" data-star="1">&#9733;</span>
+              <span class="star" data-star="2">&#9733;</span>
+              <span class="star" data-star="3">&#9733;</span>
+              <span class="star" data-star="4">&#9733;</span>
+              <span class="star" data-star="5">&#9733;</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="flex space-x-1 items-center font-bold text-xl">
+          <!-- <span class="font-bold" style=" color: rgb(61, 68, 116);">$$$$</span> -->
+          <div class="dollar_cost" data-cost="<%- hotels_res[i].dollar %>">
+            <div class="dollar">
+              <span class="dollar_sign" data-cost="1">&dollar;</span>
+              <span class="dollar_sign" data-cost="2">&dollar;</span>
+              <span class="dollar_sign" data-cost="3">&dollar;</span>
+              <span class="dollar_sign" data-cost="4">&dollar;</span>
+              <span class="dollar_sign" data-cost="5">&dollar;</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-1">
+        <a href="/explore/hotels?hotelid=<%- hotels_res[i].hotel_id %>"
+          class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+      </div>
+    </div>
+  </div>
+    <% } %>
+    <% } %>
+
+</div>
+<script src="/scripts/sortPrice.js"></script>
+<script src="/scripts/ratings.js"></script>

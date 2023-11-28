@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>Adventures - Life Happens Outdoors</title>
+  <link data-minify="1" rel="stylesheet" id="bootstrap-css" href="/styles/design1.css" media="all">
+  <link data-minify="1" rel="stylesheet" id="html5blank-css" href="/styles/design2.css" media="all">
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body
+  class="page-template page-template-template-adventures page-template-template-adventures-php page page-id-1385 theme-cmsonly tribe-no-js tec-no-tickets-on-recurring trips tribe-theme-cmsonly">
+
+  <div id="tabs-wrapper">
+    <% if(user_loggedIn) { %>
+      <%- include('./components/navbar', {loggedIn : user_loggedIn}) %>
+        <% } else { %>
+          <%- include('./components/navbar', {loggedIn : '' }) %>
+            <% } %>
+
+              <div class="tab-content active" data-id="cards">
+                <div class="container-fluid px-2 px-md-5 d-flex" id="trip-listing-wrapper">
+
+                  <!-- SIDEBAR WITH FILTERING AND FOLLOW US OPTIONS -->
+
+                  <%- include('./components/trip_filter'); %>
+
+                  <!-- SIDEBAR WITH FILTERING AND FOLLOW US OPTIONS END -->
+
+                  <div id="trip-listing">
+
+                    <!-- TRIP CARDS -->
+
+                    <%- include('./components/trip_cards') %>
+
+                  </div>
+                </div>
+              </div>
+
+  </div>
+
+<script src="/scripts/sortPrice.js"></script>
+<script src="/scripts/filter.js"></script>
+<script src="/scripts/sort_search.js"></script>
+<script src="/scripts/pickDate.js"></script>
+</body>
+
+</html>

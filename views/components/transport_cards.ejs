@@ -1,0 +1,193 @@
+<style>
+  .roww {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+  }
+</style>
+
+<div>
+  <h3 id="car">CARS</h3>
+  <br><br>
+  <% if(transport.length> 0) { %>
+    <div class="roww">
+      <% for(let i=0; i < transport.length; i++) { %>
+        <% if(transport[i].category==='car' ) { %>
+          <div>
+            <div class="w-[290px] h-[180px] relative">
+              <img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_1280.jpg" alt=""
+                class="w-[290px] h-[180px] object-cover" />
+
+              <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                <span class="uppercase text-white">HONG KONG</span>
+              </div>
+            </div>
+            <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+              <div class="py-2 px-2 space-y-3">
+                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                  <%- transport[i].title %>
+                </h1>
+
+                <p class="text-[#2f327a] pr-5">
+                  <%- transport[i].about %>
+                </p>
+              </div>
+
+              <div class="flex justify-around py-3">
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/usercard.svg" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base"> <%- transport[i].person_capacity %></span>
+                </div>
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/bluebag.png" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base"> <%- transport[i].luggage_capacity %> </span>
+                </div>
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/dollar2.png" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base"><%- transport[i].charges_per_hour %>/hour</span>
+                </div>
+              </div>
+              <div class="flex justify-center mt-4">
+                <a href="/explore/transport?mode=<%- transport[i].transport_id %>"
+                  class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+            <% } %>
+    </div>
+    <% } %>
+</div>
+
+<!-- BOATS -->
+<br> <br><br>
+<div>
+  <h3 id="boat">BOATS</h3>
+  <br><br>
+  <% if(transport.length> 0) { %>
+    <div class="roww">
+      <% for(let i=0; i < transport.length; i++) { %>
+        <% if(transport[i].category==='boat' ) { %>
+          <div>
+            <div class="w-[290px] h-[180px] relative">
+              <img src="https://cdn.pixabay.com/photo/2020/11/07/18/40/lake-5722101_1280.jpg" alt=""
+                class="w-[290px] h-[180px] object-cover" />
+
+              <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                <span class="uppercase text-white">HONG KONG</span>
+              </div>
+            </div>
+            <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+              <div class="py-2 px-2 space-y-3">
+                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                  <%- transport[i].title %>
+                </h1>
+
+                <p class="text-[#2f327a] pr-5">
+                  <%- transport[i].about %>
+                </p>
+              </div>
+
+              <div class="flex justify-around py-3">
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/usercard.svg" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base"> <%- transport[i].person_capacity %> </span>
+                </div>
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/bluebag.png" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base">  <%- transport[i].luggage_capacity %>  </span>
+                </div>
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/dollar2.png" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base"><%- transport[i].charges_per_hour %>/hour</span>
+                </div>
+              </div>
+              <div class="flex justify-center mt-4">
+                <a href="/explore/transport?mode=<%- transport[i].transport_id %>"
+                  class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+            <% } %>
+    </div>
+    <% } %>
+</div>
+
+<!-- Helicopters -->
+<br> <br><br>
+<div>
+  <h3 id="helicopter">Helicopters</h3>
+  <br><br>
+  <% if(transport.length> 0) { %>
+    <div class="roww">
+      <% for(let i=0; i < transport.length; i++) { %>
+        <% if(transport[i].category==='helicopter' ) { %>
+          <div>
+            <div class="w-[290px] h-[180px] relative">
+              <img src="https://cdn.pixabay.com/photo/2017/03/04/14/19/helicopter-2116170_1280.jpg" alt=""
+                class="w-[290px] h-[180px] object-cover" />
+
+              <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                <span class="uppercase text-white">HONG KONG</span>
+              </div>
+            </div>
+            <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+              <div class="py-2 px-2 space-y-3">
+                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                  <%- transport[i].title %>
+                </h1>
+
+                <p class="text-[#2f327a] pr-5">
+                  <%- transport[i].about %>
+                </p>
+              </div>
+
+              <div class="flex justify-around py-3">
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/usercard.svg" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base"> <%- transport[i].person_capacity %> </span>
+                </div>
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/bluebag.png" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base">  <%- transport[i].luggage_capacity %>  </span>
+                </div>
+                <div class="flex space-x-1 items-center font-bold text-xl">
+                  <div class="flex justify-center items-center">
+                    <img src="/images/dollar2.png" alt="" class="w-7">
+                  </div>
+                  <span class="text-[#3f80a9] text-base"><%- transport[i].charges_per_hour %>/hour</span>
+                </div>
+              </div>
+              <div class="flex justify-center mt-4">
+                <a href="/explore/transport?mode=<%- transport[i].transport_id %>"
+                  class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+            <% } %>
+    </div>
+    <% } %>
+</div>

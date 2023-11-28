@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/styles/output.css">
+</head>
+
+<body>
+
+    <div class="min-h-screen flex flex-col">
+        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+           
+            <form class="bg-white px-6 py-8 rounded shadow-md text-black w-full" action="/auth/auth_register"
+                method="post">
+                <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+               
+                <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4 hover:ring-2 outline-none focus-within:ring-4 ring-red-400"
+                    required id="firstName" name="firstName" placeholder="First name" />
+
+                <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4 hover:ring-2 outline-none focus-within:ring-4 ring-red-400"
+                    required id="lastName" name="lastName" placeholder="Last name" />
+
+                <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4 hover:ring-2 outline-none focus-within:ring-4 ring-red-400"
+                    required id="username" name="username" placeholder="Username" />
+
+                <input type="text"
+                    class="block border border-grey-light w-full p-3 rounded mb-4 hover:ring-2 outline-none focus-within:ring-4 ring-red-400"
+                    required id="email" name="email" placeholder="Email" />
+
+                <input type="password"
+                    class="block border border-grey-light w-full p-3 rounded mb-4 hover:ring-2 outline-none focus-within:ring-4 ring-red-400"
+                    required id="password" name="password" placeholder="Password" />
+                
+                    <div>
+                    <p style="display: none; color: rgb(235, 41, 41); font-size: 14px;" id="password_msg"> Password must be
+                        6 or more characters and contain at least 1 number </p>
+                    </div>
+
+                    <input type="password"
+                    class="block border border-grey-light w-full p-3 rounded mb-4 hover:ring-2 outline-none focus-within:ring-4 ring-red-400"
+                    required id="confirm-password" name="confirm-password" placeholder="Confirm Password" />
+                <div class="form-group">
+                    <label for="agree-terms">
+                        Subscribe to Newsletter
+                        <input type="checkbox" id="agree_terms" name="agree_terms">
+                    </label>
+                </div>
+                <button id="register" type="submit"
+                    class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-400 bg-[#3D4474] focus:outline-none my-1">Create
+                    Account</button>
+
+                <div class="text-center text-sm text-grey-dark mt-4">
+                    By signing up, you agree to the
+                    <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                        Terms of Service
+                    </a> and
+                    <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                        Privacy Policy
+                    </a>
+                </div>
+            </form>
+
+            <div class="text-grey-dark mt-6">
+                Already have an account?
+                <a class="no-underline border-b border-blue text-blue" href="/login">
+                    Log in
+                </a>.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let password_value = document.getElementById('password');
+        let con_password_value = document.getElementById('confirm-password');
+        let registerbtn = document.getElementById('register');
+        let password_msg = document.getElementById('password_msg');
+        registerbtn.addEventListener('click', (event) => {
+           
+
+            if (password_value.value.length < 8) {
+                event.preventDefault();
+                password_msg.style.display = 'block';
+            }
+            else {
+                if (password.value.match(/^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/)) {
+                    password_msg.style.display = 'none';
+                    if (con_password_value.value != password_value.value) {
+                        con_password_value.style.boxShadow = '0 0 5px red'; con_password_value.style.border = 'none';
+                        event.preventDefault();
+                    }
+                    else {
+                        con_password_value.style.boxShadow = ''; con_password_value.style.border = '';
+                    }
+                }
+                else {
+                    password_msg.style.display = 'block';
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

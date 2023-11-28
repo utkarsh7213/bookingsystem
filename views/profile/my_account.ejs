@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+  <title>My Account </title>
+
+  <style>
+    #profile_dp {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      background-color: lightblue;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    #profile_dp img {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="flex justify-center items-center h-[97vh]">
+    <div class="w-full md:w-[70%] border border-gray-300 rounded-lg h-screen md:h-[80vh] flex flex-col md:flex-row">
+
+      <%- include('../components/settings_sidebar'); %>
+        <!-- sidebar ends here -->
+
+        <div class="w-full md:w-[70%] h-full overflow-y-auto">
+
+          <div class="text-center text-xl font-semibold text-[#1c425f]">
+            My Account
+          </div>
+
+          <div class="flex flex-col justify-center items-center my-6">
+            <div class="w-20 h-20 rounded-full bg-black" id="profile_dp" onclick="click_dp()">
+              <img id="dp" class="w-20 h-20 rounded-full object- object-center" src="" alt="" />
+            </div>
+
+          <form id="profileForm" style="display: flex ; flex-direction: column; gap: 4px;" enctype="multipart/form-data"
+            autocomplete="off">
+            <input type="file" name="profilePic" id="profilePic" accept="image/*" onchange="show_image()" hidden>
+            <button class="bg-gray-300 rounded-2xl p-1" type="submit"> Upload Profile </button>
+            <a class="bg-gray-300 rounded-2xl p-1 text-center" href="/mydp/remove_profile" id="remove_profile">
+              Remove
+            </a>
+          </form>
+
+        </div>
+          <form class="form" id="form" enctype="multipart/form-data" autocomplete="off">
+
+
+            <div class="h-full ">
+              <div class="bg-[#d9d9d8] w-full p-2   font-semibold">
+                Personal Details
+              </div>
+
+              <div class="space-y-4 px-8 py-3">
+
+                <div class="flex space-x-6">
+
+                  <div class="flex flex-col ">
+                    <label for="">First name <span class="text-red-400">*</span></label>
+                    <div class="group flex space-x-2">
+                      <input id="firstName" name="firstName" value="<%- user_account_info.firstName %>" readonly
+                        placeholder="Name"
+                        class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                        type="text">
+                      <button class="edit_btn hidden group-hover:block" data-target="firstName">Edit</button>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col ">
+                    <label for="">Last name <span class="text-red-400">*</span></label>
+                    <div class="group flex space-x-2">
+                      <input id="lastName" name="lastName" value="<%- user_account_info.lastName %>"
+                        placeholder="Surname"
+                        class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                        type="text" readonly>
+                      <button class="edit_btn hidden group-hover:block" data-target="lastName">Edit</button>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="flex">
+                  <div class="flex flex-col ">
+                    <label for="">Gender </label>
+                    <select name="gender" id="gender"
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1 "
+                      id="cars">
+
+                      <option value="none" selected>Select Gender</option>
+                      <option value="female">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="not">Rather not to say</option>
+
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="flex">
+                  <div class="flex flex-col ">
+                    <label for="dobUk" class="control-label">Date of birth</label>
+                    <div class="group flex space-x-2">
+                      <input id="dob" name="dob" value="<%- user_account_info.dob %>"
+                        class="w-[200px] form-control input-lg js-date--west outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                        type="text" placeholder="DD/MM/YYYY" readonly>
+                      <button class="edit_btn hidden group-hover:block" data-target="dob">Edit</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="bg-[#d9d9d8] w-full p-2   font-semibold">
+                General Information
+              </div>
+              <div class="form" id="form" enctype="multipart/form-data" autocomplete="off">
+
+                <div class="flex flex-col px-8 my-4 space-y-1">
+                  <div class="flex flex-col ">
+                    <label for="" class="">E-mail</label>
+                    <input type="text" id="email" name="email" value="<%- user_account_info.email %>"
+                      readonly
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" placeholder="">
+                  </div>
+                </div>
+
+                <div class="h-px w-full bg-gray-300"></div>
+
+                <div class="space-y-4 px-8 py-3">
+
+                  <div class="flex flex-col ">
+                    <label for="" class="">Address</label>
+                    <div class="group flex space-x-2">
+                      <input id="address" name="address" value="<%- user_account_info.user_address %>" 
+                        class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                        type="text" placeholder="" readonly>
+                      <button class="edit_btn hidden group-hover:block" data-target="address">Edit</button>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col ">
+                    <label for="" class="">Address Secondary</label>
+                    <div class="group flex space-x-2">
+                      <input id="secondAddress" name="secondAddress" value="<%- user_account_info.user_address %>" 
+                        class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                        type="text" placeholder="" readonly>
+                      <button class="edit_btn hidden group-hover:block" data-target="secondAddress">Edit</button>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col md:flex-row md:space-x-3">
+
+                    <div class="flex flex-col ">
+                      <label for="" class="">City</label>
+                      <div class="group flex space-x-2">
+                        <input type="text" id="city" name="city" value="<%- user_account_info.city %>" readonly
+                          class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                          type="text" placeholder="">
+                        <button class="edit_btn hidden group-hover:block" data-target="city">Edit
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="flex flex-col ">
+                      <label for="" class="">State/Province/Region</label>
+                      <div class="group flex space-x-2">
+                        <input type="text" id="state" name="state" value="<%- user_account_info.region %>" readonly
+                          class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                          type="text" placeholder="">
+                        <button class="edit_btn hidden group-hover:block" data-target="state">Edit</button>
+                      </div>
+                    </div>
+
+                    <div class="flex flex-col ">
+                      <label for="" class="">ZIP code/Postal Code</label>
+                      <div class="group flex space-x-2">
+                        <input type="text" id="zipcode" name="zipcode" value="<%- user_account_info.zipcode %>" readonly
+                          class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                          type="text" placeholder="">
+                        <button class="edit_btn hidden group-hover:block" data-target="zipcode">Edit
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="flex flex-col">
+                    <label for="">Country </label>
+                    <select name="country" id="country"
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1 "
+                      id="cars">
+
+                      <option value="none" selected>Select Country</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+
+                    </select>
+                  </div>
+
+                  <div class="flex flex-row space-x-3">
+                    <div class="flex flex-col ">
+                      <label for="">Country code </label>
+                      <select
+                        class="w-[150px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1 "
+                        id="cars">
+
+                        <option value="none" selected>Select code</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+
+                      </select>
+                    </div>
+
+                    <div class="flex flex-col ">
+                      <label for="" class="">Phone Number</label>
+                      <div class="group flex space-x-2">
+                        <input type="text" id="phoneno" name="phoneno" value="<%- user_account_info.phoneno %>" readonly
+                          class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                          type="text" placeholder="">
+                        <button class="edit_btn hidden group-hover:block" data-target="phoneno"> Edit</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="h-px w-full bg-gray-300"></div>
+              <div class="px-8 my-6">
+                <div class="my-3">Upload Travel Documents</div>
+                <div class="grid grid-cols-2 gap-4">
+
+                  <div class="h-[250px] w-[100%] border border-gray-400">
+
+                  </div>
+                  <div class="h-[250px] w-[100%] border border-gray-400">
+
+                  </div>
+
+
+                </div>
+
+                <div class="my-4">
+                  <div
+                    class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1 text-gray-400 cursor-pointer">
+                    Add More...</div>
+                </div>
+
+              </div>
+
+
+              <div class="h-px w-full bg-gray-300"></div>
+              <div class="px-8 my-6">
+                <div class="flex flex-col ">
+                  <label for="" class="">Password</label>
+                  <input disabled id="" name=""
+                    class="w-[200px] cursor-not-allowed  outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                    type="text" placeholder="***********">
+                  <div class="">
+                    <a href="/reset_password" class="underline text-blue-900">Reset Your Password</a>
+                  </div>
+                </div>
+              </div>
+              <div class="h-px w-full bg-gray-300"></div>
+
+
+              <div class="px-8 my-10">
+
+
+                <button id="save_settings"
+                  class="bg-[#3D4474] rounded-3xl  p-2 text-white font-bold  w-[140px]">Save</button>
+                <button id="discard_settings"
+                  class="text-[#3D4474] bg-gray-400 rounded-3xl  p-2 font-bold text-sm w-[140px]">Discard
+                  Changes</button>
+
+
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).ready(function () {
+      $('#remove_profile').on('click', function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: '/mydp/remove_profile',
+          type: 'GET',
+          success: function (response) {
+            // console.log(response);
+          },
+          error: function (xhr, status, error) {
+            console.error(error);
+          }
+        });
+      });
+    });
+  </script>
+
+
+  <script type="text/javascript">
+    let file_dialog = document.getElementById('profilePic')
+    const dp = document.getElementById('dp')
+    function click_dp() {
+      file_dialog.click()
+    }
+    function show_image() {
+      if (file_dialog.files && file_dialog.files[0]) {
+        const fileReader = new FileReader();
+        fileReader.onload = (event) => {
+          dp.src = event.target.result;
+        };
+        fileReader.readAsDataURL(file_dialog.files[0]);
+      }
+    }
+  </script>
+
+  <script src="/scripts/profile.js"></script>
+
+  <script src="/scripts/dp.js"> </script>
+
+  <script>
+    const discard_btn = document.getElementById('discard_settings');
+    const editButtons = document.querySelectorAll('.edit_btn');
+
+    editButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = button.getAttribute('data-target');
+        const targetInput = document.getElementById(targetId);
+
+        if (targetInput) {
+          targetInput.readOnly = !targetInput.readOnly;
+          button.textContent = targetInput.readOnly ? 'Edit' : 'Lock';
+        }
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $("#save_settings").click(function (event) {
+        event.preventDefault();
+        const fieldIds = [
+          'firstName', 'lastName', 'dob', 'email', 'address',
+          'city', 'state', 'zipcode', 'country', 'phoneno', 'gender'
+        ];
+        var form_data = {};
+        fieldIds.forEach(function (fieldId) {
+          form_data[fieldId] = $('#' + fieldId).val();
+        });
+
+        $.ajax({
+          type: "POST",
+          url: "/edit/edit_profile",
+          data: JSON.stringify(form_data),
+          contentType: "application/json",
+          success: function (response) {
+            if (response) {
+              alert(response);
+            }
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.error("Error:", textStatus, errorThrown);
+          }
+        });
+      });
+    });
+
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('.js-date--west').mask('00/00/0000');
+
+      // Validation
+      $('.js-btn').on('click', function () {
+        $('.js-validation-message').removeClass('red');
+        $('.js-validation-message').removeClass('green');
+        var dateObj = $('.js-date--west');
+
+        if (dateObj.val() == null || dateObj.val() != "") {
+          var d1 = Date.parse(dateObj.val().replace(/([0-9]+)\/([0-9]+)/, '$2/$1'));
+          if (d1 == null || isNaN(parseFloat(d1))) {
+            $('.js-validation-message').html('Error!');
+            $('.js-validation-message').addClass('red');
+          }
+          else {
+            $('.js-validation-message').html('Valid!');
+            $('.js-validation-message').addClass('green');
+          }
+        }
+        else {
+          $('.js-validation-message').html('Required');
+          $('.js-validation-message').addClass('red');
+        }
+      });
+    });
+
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+  </script>
+</body>
+
+</html>

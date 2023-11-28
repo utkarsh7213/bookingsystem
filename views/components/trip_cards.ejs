@@ -1,0 +1,62 @@
+<div id="trip-cards">
+  <style>
+    .roww {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 12px;
+      grid-row-gap: 12px;
+    }
+  </style>
+
+
+
+  <% if(location.length> 0) { %>
+
+    <div class="roww">
+      <% for(let i=0; i < location.length; i++) { %>
+        <div class="destination" data-month="<%- location[i].month %>" data-destination="<%- location[i].loc_ation %>"
+          data-type="<%- location[i].tour_type %>" data-level="<%- location[i].level %>"
+          data-access="<%- location[i].typ_e %>" data-duration="<%- location[i].travel_time %>"
+          data-date="<%- location[i].duration %>" data-price="<%- location[i].price_filter %>" style="order:999999">
+          <div class="w-[290px] h-[180px] relative">
+            <img src="https://cdn.pixabay.com/photo/2018/02/08/11/40/castle-3139265_960_720.jpg" alt=""
+              class="w-[290px] h-[180px] object-cover" />
+            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+              <span class="uppercase text-white"><%- location[i].title %></span>
+            </div>
+          </div>
+          <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+            <div class="py-2 px-2 space-y-3">
+              <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                <%- location[i].loc_ation %>
+              </h1>
+              <p class="text-[#2f327a] pr-5">
+                <%- location[i].des_cription %>
+              </p>
+            </div>
+            <div class="flex justify-evenly py-3">
+              <div class="flex space-x-1 items-center font-bold text-xl">
+                <div class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                  <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                </div>
+                <span class="text-[#3f80a9] text-base"><%- location[i].charges %></span>
+              </div>
+              <div class="flex space-x-1 items-center font-bold text-xl">
+                <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                <span class="text-[#3f80a9] text-base"><%- location[i].travel_time %></span>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <a href="/explore/tours?locationid=<%- location[i].tour_id %>"
+                class="bg-[#0f3256] font-bold text-white px-9 text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+            </div>
+          </div>
+        </div>
+
+        <% } %>
+    </div>
+
+    <% } %>
+
+</div>

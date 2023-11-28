@@ -1,0 +1,205 @@
+<link rel="stylesheet" href="/styles/output.css" />
+<script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+
+<style>
+.popup {
+display: none;
+/* display: block; */
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+/* background-color: white; */
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.067);
+z-index: 1000;
+width: 100%;
+}
+
+</style>
+
+<% if(!loggedIn) { %>
+    <div id="popup" class="popup">
+        <%- include('../login', {msg : ''}); %>
+    </div>
+<% } %>
+
+<header class="bg-[#f2f2f2] h-[80px] w-full" style="z-index: 100;">
+    <div class="flex items-center justify-around">
+        <div class="">
+            <img width="80" src="/images/logo.png" alt="" />
+        </div>
+
+        <div class="space-x-5 md:block hidden" >
+            <a href="/tour" class="text-gray-500 text-base hover:text-[#3F80A9]">Tours
+            </a>
+            <a href="/tour/excursions" class="text-gray-500 text-base hover:text-[#3F80A9]">Excursions
+            </a>
+            <a href="/tour/hotels" class="text-gray-500 text-base hover:text-[#3F80A9]">Hotels
+            </a>
+            <a href="/tour/transport" class="text-gray-500 text-base hover:text-[#3F80A9]">Transport
+            </a>
+            <a href="/flights" class="text-gray-500 text-base hover:text-[#3F80A9]">Flight
+            </a>
+            <a href="/about" class="text-gray-500 text-base hover:text-[#3F80A9]">About
+            </a>
+        </div>
+
+        <div class="relative flex space-x-5">
+
+            <% if(loggedIn) { %>
+                <div class="Relative group ">
+                    <!-- <a href="#" class="">Profile</a> -->
+                    <div style="cursor: pointer;">Profile</div>
+                    <div class="absolute bg-white w-[150px] hidden group-hover:block rounded-md" style="z-index: 2000;">
+                        <div class="p-3 space-y-4 flex flex-col">
+                            <a href="/profile/my_account" class="hover:bg-gray-100 rounded-lg p-1.5">My Account</a>
+                            <a href="/profile/my_trips" class="hover:bg-gray-100 rounded-lg p-1.5">My Trip</a>
+                            <a href="/profile/my_bookings" class="hover:bg-gray-100 rounded-lg p-1.5">My Booking</a>
+                            <a href="/profile/settings" class="hover:bg-gray-100 rounded-lg p-1.5">Settings</a>
+                            <a href="/logout" class="hover:bg-gray-100 rounded-lg p-1.5">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+                <% } else { %>
+                    <a href="javascript:void(0)" class="" id="signinBtn">Sign in</a>
+                    <% } %>
+
+                        <div class="Relative group ">
+                            <a href="/contact_us" class="">Contact us</a>
+
+                            <div class="absolute bg-white w-[220px] hidden group-hover:block rounded-md -ml-9" style="width: 220px;">
+                                <div class="p-3 space-y-4 flex flex-col">
+                                   
+                                    <p class="flex items-center space-x-4" id="WA"> <img width="30" src="/images/whatsappIcon.png" alt=""> 1234567890 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-clone" aria-hidden="true" id="copyWA" style="cursor: pointer;"></i></p>
+                                    <a href="javascript:void(0)" class="" id="mail"> example@gmail.com &nbsp;&nbsp; <i class="fa fa-clone" aria-hidden="true" id="copyBtn"></i> </a>
+
+                                </div>
+                            </div>
+                        </div>
+        </div>
+
+        <div class="md:block hidden">
+            <div class="Relative group bg-white p-2 rounded-lg ">
+                <a href="" class="">English</a>
+
+                <div class="absolute  w-[150px] hidden group-hover:block rounded-md py-4 ">
+                    <div class="bg-white rounded-lg">
+                        <button class="hover:bg-gray-100 rounded-lg p-1.5 w-full">English</button>
+                        <button class="hover:bg-gray-100 rounded-lg p-1.5 w-full">Russian</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden  scale-75">
+            <div id="mobileMenuTrigger" class="">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- mobile menu starts here  -->
+    <div class=" md:hidden absolute h-screen w-full bg-[#3F80A9]" id="mobileMenu">
+
+        <div class="flex flex-col items-center py-8 space-y-10">
+
+            <div class="space-y-4 md:block  flex flex-col items-center">
+                <a href="/tour" class="text-white font-semibold text-base hover:text-gray-200">Tours
+                </a>
+                <a href="/tour/excursions" class="text-white font-semibold text-base hover:text-gray-200">Excursions
+                </a>
+                <a href="/tour/hotels" class="text-white font-semibold text-base hover:text-gray-200">Hotels
+                </a>
+                <a href="/tour/transport" class="text-white font-semibold text-base hover:text-gray-200">Transport
+                </a>
+                <a href="/flights" class="text-white font-semibold text-base hover:text-gray-200">Flight
+                </a>
+                <a href="/about" class="text-white font-semibold text-base hover:text-gray-200">About
+                </a>
+            </div>
+
+            <div class="">
+                <div class="Relative group bg-white p-2 rounded-lg ">
+                    <a href="" class="">English</a>
+
+                    <div class="absolute  w-[150px] hidden group-hover:block rounded-md py-4 ">
+                        <div class="bg-white rounded-lg">
+                            <button class="hover:bg-gray-100 rounded-lg p-1.5 w-full">English</button>
+                            <button class="hover:bg-gray-100 rounded-lg p-1.5 w-full">Russian</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</header>
+
+<script>
+    function copyTextToClipboard() {
+        const copy_mail = document.getElementById('mail');
+        const text = copy_mail.textContent;
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('Text copied to clipboard: ' + text);
+    }
+    document.getElementById('copyBtn').addEventListener('click', copyTextToClipboard);
+</script>
+
+<script>
+    function copyTextToClipboard() {
+        const copy_mail = document.getElementById('WA');
+        const text = copy_mail.textContent;
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('Text copied to clipboard: ' + text);
+    }
+    document.getElementById('copyWA').addEventListener('click', copyTextToClipboard);
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#mobileMenuTrigger').click(function () {
+            $(this).toggleClass('open');
+            $('#mobileMenu').toggleClass('open');
+        });
+        $('main').click(function () {
+            $('#mobileMenuTrigger.open').toggleClass('open');
+            $('#mobileMenu').removeClass('open');
+        });
+    });
+</script>
+
+<script>
+    const signinBtn = document.getElementById('signinBtn');
+    const closePopup = document.getElementById('closePopup');
+    const popup = document.getElementById('popup');
+
+    if(signinBtn) {
+        signinBtn.addEventListener('click', function() {
+            popup.style.display = 'block';
+        })
+
+        closePopup.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
+    }
+  
+
+  </script>

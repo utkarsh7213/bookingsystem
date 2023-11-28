@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMIST - TOUR</title>
+    <link rel="stylesheet" href="/styles/output.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="flex justify-center flex-col items-center">
+
+    <% if(user_loggedIn) { %>
+        <%- include('./components/navbar', {loggedIn : user_loggedIn}) %>
+
+            <% } else { %>
+                <%- include('./components/navbar', {loggedIn : '' }) %>
+                    <% } %>
+
+                        <div class="md:w-[80%] w-[96%]">
+                            <!-- Breadcumbs start here -->
+                            <!-- <div class="flex space-x-1 items-center my-4 text-gray-500">
+                                <a href="/" class="hover:underline text-xs">Europe</a>
+                                <span class=""><svg fill="#808080" viewBox="0 0 25 24" width="1em" height="1em"
+                                        class="">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M7.545 18.837L14.382 12 7.545 5.164l1.061-1.061 7.367 7.367a.75.75 0 010 1.06l-7.367 7.367-1.06-1.06z">
+                                        </path>
+                                    </svg></span>
+                                <a href="/" class="hover:underline text-xs">Norway</a>
+                                <span class=""><svg fill="#808080" viewBox="0 0 25 24" width="1em" height="1em"
+                                        class="">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M7.545 18.837L14.382 12 7.545 5.164l1.061-1.061 7.367 7.367a.75.75 0 010 1.06l-7.367 7.367-1.06-1.06z">
+                                        </path>
+                                    </svg></span>
+                                <a href="/" class="hover:underline text-xs">Northern Norway</a>
+                                <span class=""><svg fill="#808080" viewBox="0 0 25 24" width="1em" height="1em"
+                                        class="">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M7.545 18.837L14.382 12 7.545 5.164l1.061-1.061 7.367 7.367a.75.75 0 010 1.06l-7.367 7.367-1.06-1.06z">
+                                        </path>
+                                    </svg></span>
+                            </div> -->
+                            <!-- // Breadcumbs ends here -->
+
+                            <br>
+                            <div class="flex flex-col space-y-4">
+                                <h1 class="text-black font-bold text-2xl md:text-3xl">
+                                    Northern Lights Adventure with Greenlander, 8 people max
+                                </h1>
+                                <!-- <a href="/" class="underline">By Utkarsh</a> -->
+                            </div>
+                            <!-- grid image on desktop!!  -->
+
+                            <div class="my-4 hidden md:block">
+                                <div class="flex p- space-x-1">
+                                    <div class="">
+                                        <img class="w-[720px] h-[424px] rounded-l-lg object-cover object-center cursor-pointer hover:brightness-125"
+                                            src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/96/48/a9.jpg"
+                                            role="none" alt="" fetchpriority="high" />
+                                    </div>
+                                    <div class="space-y-1">
+                                        <img class="rounded-tr-lg w-[600px] h-[210px] object-cover object-center cursor-pointer hover:brightness-125"
+                                            src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/96/48/a9.jpg"
+                                            role="none" alt="" fetchpriority="high" />
+                                        <img class="rounded-br-lg w-[600px] h-[210px] object-cover object-center cursor-pointer hover:brightness-125"
+                                            src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/96/48/a9.jpg"
+                                            role="none" alt="" fetchpriority="high" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- grid image on desktop!!  ends here -->
+
+                            <!-- phone image colums here  -->
+                            <div class="carousel-frame md:hidden">
+                                <div class="carousel-slide">
+                                    <img class="object-center"
+                                        src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/96/48/a9.jpg"
+                                        role="none" alt="" fetchpriority="high" />
+                                    <img class="object-center"
+                                        src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/36/5e/e2.jpg"
+                                        role="none" alt="" fetchpriority="high" />
+                                    <img class="object-center"
+                                        src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/36/5f/02.jpg"
+                                        role="none" alt="" fetchpriority="high" />
+                                </div>
+                                <i class="carousel-prev fas fa-chevron-left"></i>
+                                <i class="carousel-next fas fa-chevron-right"></i>
+                                <ol class="carousel-dots">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ol>
+                            </div>
+                            <!-- phone image colums ends here  -->
+
+                            <div class="flex md:flex-row flex-col-reverse">
+                                <!-- about section here  -->
+                                <div class="h-auto w-full md:w-[60%]">
+                                    <div class="">
+                                        <p class="font-semibold">About</p>
+                                        <p class="pr-4 text-gray-700 py-4">
+                                            <%- tour_res.location_description %>
+                                        </p>
+                                    </div>
+                                    <div class="h-[1px] w-[95%] my-2 bg-gray-300"></div>
+
+                                    <div class="flex flex-col space-y-2 my-8">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="">
+                                                <div class="CBBDT">
+                                                    <svg viewBox="0 0 24 24" width="18px" height="18px"
+                                                        class="d Vb UmNoP">
+                                                        <path
+                                                            d="M12 12.28l-.008.75h.02L12 12.28zM2 18.51h-.75v.752l.752-.002L2 18.51zm0-2.92l-.585-.469-.165.206v.263H2zm3.855-1.85v.75-.75zm3.855 1.85h.75v-.263l-.165-.206-.585.469zm0 2.9l.002.75.748-.002v-.748h-.75zm4.6.02h-.75v.752l.752-.002-.002-.75zm0-2.92l-.585-.469-.165.206v.263h.75zm3.855-1.85v.75-.75zm3.855 1.85h.75v-.263l-.165-.206-.585.469zm0 2.9l.002.75.748-.002v-.748h-.75zM13.27 7c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0014.77 7h-1.5zm-1.25 1.25c-.69 0-1.25-.56-1.25-1.25h-1.5a2.75 2.75 0 002.75 2.75v-1.5zM10.77 7c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 009.27 7h1.5zm1.25-1.25c.69 0 1.25.56 1.25 1.25h1.5a2.75 2.75 0 00-2.75-2.75v1.5zm-3.267 8.802a4.11 4.11 0 011.445-1.132l-.638-1.357a5.61 5.61 0 00-1.973 1.545l1.166.944zm1.445-1.132a4.11 4.11 0 011.794-.39l.016-1.5a5.61 5.61 0 00-2.448.533l.638 1.357zm1.815-.39a4.1 4.1 0 011.814.39l.639-1.358a5.6 5.6 0 00-2.479-.532l.026 1.5zm1.814.39a4.1 4.1 0 011.457 1.148l1.172-.936a5.6 5.6 0 00-1.99-1.57l-.639 1.357zM2.75 18.51v-2.92h-1.5v2.92h1.5zm-.165-2.451a4.19 4.19 0 011.456-1.157l-.649-1.352a5.69 5.69 0 00-1.977 1.571l1.17.938zm1.456-1.157a4.19 4.19 0 011.814-.413v-1.5a5.69 5.69 0 00-2.463.56l.65 1.353zm1.814-.413a4.19 4.19 0 011.814.413l.649-1.352a5.69 5.69 0 00-2.463-.56v1.5zm1.814.413a4.19 4.19 0 011.456 1.157l1.17-.938a5.69 5.69 0 00-1.977-1.571l-.65 1.352zm1.291.688v2.9h1.5v-2.9h-1.5zm.748 2.15l-7.71.02.004 1.5 7.71-.02-.004-1.5zM20.02 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0021.52 9h-1.5zm-1.25 1.25c-.69 0-1.25-.56-1.25-1.25h-1.5a2.75 2.75 0 002.75 2.75v-1.5zM17.52 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0016.02 9h1.5zm1.25-1.25c.69 0 1.25.56 1.25 1.25h1.5a2.75 2.75 0 00-2.75-2.75v1.5zM6.52 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 008.02 9h-1.5zm-1.25 1.25c-.69 0-1.25-.56-1.25-1.25h-1.5a2.75 2.75 0 002.75 2.75v-1.5zM4.02 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 002.52 9h1.5zm1.25-1.25c.69 0 1.25.56 1.25 1.25h1.5a2.75 2.75 0 00-2.75-2.75v1.5zm9.79 10.76v-2.92h-1.5v2.92h1.5zm-.165-2.451a4.19 4.19 0 011.457-1.157l-.65-1.352a5.69 5.69 0 00-1.977 1.571l1.17.938zm1.457-1.157a4.19 4.19 0 011.813-.413v-1.5a5.69 5.69 0 00-2.463.56l.65 1.353zm1.813-.413a4.19 4.19 0 011.814.413l.649-1.352a5.69 5.69 0 00-2.463-.56v1.5zm1.814.413a4.19 4.19 0 011.456 1.157l1.17-.938a5.691 5.691 0 00-1.977-1.571l-.65 1.352zm1.291.688v2.9h1.5v-2.9h-1.5zm.748 2.15l-7.71.02.004 1.5 7.71-.02-.004-1.5z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-800">Ages 4-99, max of 8 per group</p>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="">
+                                                <div class="CBBDT">
+                                                    <svg viewBox="0 0 24 24" width="18px" height="18px"
+                                                        class="d Vb UmNoP">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M6.713 3.982a9.994 9.994 0 00-4.734 8.502c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.522-4.477-10-10-10v1.5a8.5 8.5 0 11-5.266 1.828v-1.83z">
+                                                        </path>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M6.323 4.935h-3.55v-1.5h5.05v5.05h-1.5v-3.55zM11.333 13.034v-5.36h1.5v5.457c0 .312-.116.612-.326.842l-2.765 3.033-1.109-1.01 2.7-2.962z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-800">Duration: <%- tour_res.travel_time %> </p>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="">
+                                                <div class="CBBDT">
+                                                    <svg viewBox="0 0 24 24" width="18px" height="18px"
+                                                        class="d Vb UmNoP">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M9.654 10.255h4.178c-.07-1.591-.356-2.993-.766-4.017-.238-.594-.502-1.023-.756-1.293-.211-.223-.38-.3-.5-.32a6.56 6.56 0 00-.133 0c-.12.02-.29.097-.5.32-.255.27-.519.7-.756 1.293-.41 1.024-.697 2.426-.767 4.017zm-.374-5.14c-.09.18-.174.37-.252.565-.491 1.227-.805 2.825-.875 4.575H5.399a6.388 6.388 0 013.88-5.14zm2.301-1.99a7.883 7.883 0 00-7.726 7.88 7.88 7.88 0 007.883 7.886c.585 0 .872-.015 1.111-.074.123-.031.172-.05.213-.064.058-.02.099-.036.312-.073l-.26-1.478a3.842 3.842 0 00-.462.107c-.087.026-.113.035-.127.04a.286.286 0 01-.04.012c-.03.008-.132.03-.742.03-.122 0-.313-.06-.566-.327-.255-.27-.519-.7-.756-1.293-.41-1.024-.697-2.425-.767-4.016h4.203a4.673 4.673 0 01-.225 1.255l-.012.041-.005.016c-.033.113-.088.297-.099.478l1.498.088v.006s.007-.036.044-.162l.012-.04c.037-.125.089-.297.136-.504.072-.313.134-.698.152-1.178h2.734a4.156 4.156 0 01-.195.949c-.055.159-.11.28-.166.402l-.004.01a1.844 1.844 0 00-.171.507l1.484.219-.005.026s.012-.032.057-.13l.008-.018c.056-.123.137-.3.215-.53.168-.488.311-1.167.311-2.185a7.878 7.878 0 00-7.72-7.88 1.938 1.938 0 00-.325 0zm2.626 1.99c.09.181.173.37.252.565.49 1.227.804 2.825.875 4.575h2.749a6.384 6.384 0 00-3.876-5.14zM9.284 16.902a7.763 7.763 0 01-.256-.573c-.49-1.227-.805-2.824-.875-4.574H5.399a6.386 6.386 0 003.885 5.147z">
+                                                        </path>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M20.833 12.778h-8.75v6.648h5.255l3.495 2.325v-8.973zm-1.5 1.5v4.673l-1.542-1.025h-4.209v-3.648h5.75z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-800">Available Language: <%- tour_res.available_lang %></p>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="">
+                                                <div class="CBBDT">
+                                                    <svg viewBox="0 0 24 24" width="18px" height="18px"
+                                                        class="d Vb UmNoP">
+                                                        <path
+                                                            d="M12 12.28l-.008.75h.02L12 12.28zM2 18.51h-.75v.752l.752-.002L2 18.51zm0-2.92l-.585-.469-.165.206v.263H2zm3.855-1.85v.75-.75zm3.855 1.85h.75v-.263l-.165-.206-.585.469zm0 2.9l.002.75.748-.002v-.748h-.75zm4.6.02h-.75v.752l.752-.002-.002-.75zm0-2.92l-.585-.469-.165.206v.263h.75zm3.855-1.85v.75-.75zm3.855 1.85h.75v-.263l-.165-.206-.585.469zm0 2.9l.002.75.748-.002v-.748h-.75zM13.27 7c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0014.77 7h-1.5zm-1.25 1.25c-.69 0-1.25-.56-1.25-1.25h-1.5a2.75 2.75 0 002.75 2.75v-1.5zM10.77 7c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 009.27 7h1.5zm1.25-1.25c.69 0 1.25.56 1.25 1.25h1.5a2.75 2.75 0 00-2.75-2.75v1.5zm-3.267 8.802a4.11 4.11 0 011.445-1.132l-.638-1.357a5.61 5.61 0 00-1.973 1.545l1.166.944zm1.445-1.132a4.11 4.11 0 011.794-.39l.016-1.5a5.61 5.61 0 00-2.448.533l.638 1.357zm1.815-.39a4.1 4.1 0 011.814.39l.639-1.358a5.6 5.6 0 00-2.479-.532l.026 1.5zm1.814.39a4.1 4.1 0 011.457 1.148l1.172-.936a5.6 5.6 0 00-1.99-1.57l-.639 1.357zM2.75 18.51v-2.92h-1.5v2.92h1.5zm-.165-2.451a4.19 4.19 0 011.456-1.157l-.649-1.352a5.69 5.69 0 00-1.977 1.571l1.17.938zm1.456-1.157a4.19 4.19 0 011.814-.413v-1.5a5.69 5.69 0 00-2.463.56l.65 1.353zm1.814-.413a4.19 4.19 0 011.814.413l.649-1.352a5.69 5.69 0 00-2.463-.56v1.5zm1.814.413a4.19 4.19 0 011.456 1.157l1.17-.938a5.69 5.69 0 00-1.977-1.571l-.65 1.352zm1.291.688v2.9h1.5v-2.9h-1.5zm.748 2.15l-7.71.02.004 1.5 7.71-.02-.004-1.5zM20.02 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 0021.52 9h-1.5zm-1.25 1.25c-.69 0-1.25-.56-1.25-1.25h-1.5a2.75 2.75 0 002.75 2.75v-1.5zM17.52 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 0016.02 9h1.5zm1.25-1.25c.69 0 1.25.56 1.25 1.25h1.5a2.75 2.75 0 00-2.75-2.75v1.5zM6.52 9c0 .69-.56 1.25-1.25 1.25v1.5A2.75 2.75 0 008.02 9h-1.5zm-1.25 1.25c-.69 0-1.25-.56-1.25-1.25h-1.5a2.75 2.75 0 002.75 2.75v-1.5zM4.02 9c0-.69.56-1.25 1.25-1.25v-1.5A2.75 2.75 0 002.52 9h1.5zm1.25-1.25c.69 0 1.25.56 1.25 1.25h1.5a2.75 2.75 0 00-2.75-2.75v1.5zm9.79 10.76v-2.92h-1.5v2.92h1.5zm-.165-2.451a4.19 4.19 0 011.457-1.157l-.65-1.352a5.69 5.69 0 00-1.977 1.571l1.17.938zm1.457-1.157a4.19 4.19 0 011.813-.413v-1.5a5.69 5.69 0 00-2.463.56l.65 1.353zm1.813-.413a4.19 4.19 0 011.814.413l.649-1.352a5.69 5.69 0 00-2.463-.56v1.5zm1.814.413a4.19 4.19 0 011.456 1.157l1.17-.938a5.691 5.691 0 00-1.977-1.571l-.65 1.352zm1.291.688v2.9h1.5v-2.9h-1.5zm.748 2.15l-7.71.02.004 1.5 7.71-.02-.004-1.5z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-800" style="text-transform: uppercase;"> Type of tours:
+                                                 </p>
+
+                                        </div>
+                                    </div>
+                                    <div class="h-[0.8px] w-[95%] my-2 bg-gray-300"></div>
+                                    <div class="w-[95%]">
+                                        <div class="space-y-4">
+                                            <button class="acc-btn hover:underline">What's included</button>
+                                            <div class="acc-content px-5 ">
+                                                <ul class="list-disc space-y-1.5">
+                                                    <li class="">
+                                                        <span class="">All taxes, fees and handling charges</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Dinner</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Light refreshments</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Snacks</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Driver/guide</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Professional guide</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Professional photographer guide</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Hotel/port drop-off</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Transport by private vehicle</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Coffee and/or Tea</span>
+                                                    </li>
+                                                    <li class="">
+                                                        <span class="">Entry/Admission - Tromso</span>
+                                                    </li>
+                                                </ul>
+
+                                                <div class="my-8">
+                                                    <div class="font-[600] hover:underline my-4">What's not included
+                                                    </div>
+                                                    <ul class="list-disc space-y-1.5">
+                                                        <li class="">
+                                                            <span class="">Your own camera and spare batteries for
+                                                                it</span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+
+
+                                            </div>
+
+                                            <button class="acc-btn">
+                                                What to expect?
+                                            </button>
+                                            <div class="acc-content">
+                                                <p class="mb-4">Content will be shown here!</p>
+                                            </div>
+
+                                            <button class="acc-btn">
+                                                Tour guides
+                                            </button>
+                                            <div class="acc-content">
+                                                <p class="mb-4">Content will be shown here!</p>
+                                            </div>
+
+                                            <button class="acc-btn">Transportation</button>
+                                            <div class="acc-content">
+                                                <p class="mb-4">Content will be shown here!</p>
+                                            </div>
+
+                                            <button class="acc-btn">
+                                                Tour detailed information
+                                            </button>
+                                            <div class="acc-content">
+                                                <p class="mb-4">Content will be shown here!</p>
+                                            </div>
+
+                                            <button class="acc-btn">
+                                                Additional Information
+                                            </button>
+                                            <div class="acc-content">
+                                                <p class="mb-4">Content will be shown here!</p>
+                                            </div>
+
+                                            <button class="acc-btn">
+                                                Tour guides
+                                            </button>
+                                            <div class="acc-content">
+                                                <p>Content will be shown here!</p>
+                                            </div>
+
+                                            <button class="acc-btn">
+                                                FAQ
+                                            </button>
+                                            <div class="acc-content">
+                                                <p class="">Content will be shown here!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- about section ends here  -->
+
+                                <!-- book section here -->
+
+                                <div
+                                    class="h-[500px] w-full md:w-[40%] border border-gray-300 rounded-xl md:sticky md:top-3 px-6">
+
+                                    <%- include('./components/bookSection', { tour_res }) %>
+
+                                </div>
+                                <!-- book section ends here -->
+                            </div>
+
+
+                            <!-- Similar Experiences  -->
+
+                            <div class="">
+                                <h2 class="text-3xl text-black font-semibold my-6">Similar experiences</h2>
+                                <div class="flex space-x-5 w-full overflow-x-auto md:overflow-hidden md:w-auto"
+                                    id="style-2">
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Similar Experiences ends here -->
+
+
+                            <!-- Most Popular  -->
+
+                            <div class="">
+                                <h2 class="text-3xl text-black font-semibold my-6 mt-12">Most Popular</h2>
+                                <div class="flex space-x-5 w-full overflow-x-auto md:overflow-hidden md:w-auto"
+                                    id="style-2">
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="w-[290px] h-[180px] relative">
+                                            <img src="/images/tour.jpeg" alt=""
+                                                class="w-[290px] h-[180px] object-cover" />
+
+                                            <div class="absolute top-1 bg-[#3fa971] rounded-2xl p-0.5 px-1 left-2">
+                                                <span class="uppercase text-white">Hong kong</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#b8d6f6] h-[250px] w-[290px] rounded-b-[2.5rem]">
+                                            <div class="py-2 px-2 space-y-3">
+                                                <h1 class="uppercase text-[#2f327a] font-bold text-2xl">
+                                                    Disneyland Tour
+                                                </h1>
+
+                                                <p class="text-[#2f327a] pr-5">
+                                                    Experience the magic of Hong Kong Disneyland - where dreams come
+                                                    true for all ages.
+                                                </p>
+                                            </div>
+
+                                            <div class="flex justify-evenly py-3">
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <div
+                                                        class="bg-[#3F80A9] w-9 h-9 rounded-full flex justify-center items-center">
+                                                        <i class="fa-solid fa-dollar-sign text-[#b8d6f6] text-2xl"></i>
+                                                    </div>
+                                                    <span class="text-[#3f80a9] text-base">800.00</span>
+                                                </div>
+                                                <div class="flex space-x-1 items-center font-bold text-xl">
+                                                    <i class="fa-solid fa-hourglass-start text-[#3F80A9] text-3xl"></i>
+                                                    <span class="text-[#3f80a9] text-base">9-11 hours</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <a href=""
+                                                    class="bg-[#0f3256] font-bold text-white px-9  text-[1.1rem] rounded-3xl py-2.5 hover:bg-transparent hover:border-2 hover:text-[#0f3256] transition-all duration-200 hover:border-black">EXPLORE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Most Popular ends here -->
+                        </div>
+
+                        <script src="/scripts/pickDate.js"></script>
+                    </body>
+<script>
+    const btns = document.querySelectorAll(".acc-btn");
+
+    // fn
+    function accordion() {
+        // this = the btn | icon & bg changed
+        this.classList.toggle("is-open");
+
+        // the acc-content
+        const content = this.nextElementSibling;
+
+        // IF open, close | else open
+        if (content.style.maxHeight) content.style.maxHeight = null;
+        else content.style.maxHeight = content.scrollHeight + "px";
+    }
+
+    // event
+    btns.forEach((el) => el.addEventListener("click", accordion));
+
+    const carouselFrames = Array.from(
+        document.querySelectorAll(".carousel-frame")
+    );
+
+    function makeCarousel(frame) {
+        const carouselSlide = frame.querySelector(".carousel-slide");
+        const carouselImages = getImagesPlusClones();
+        const prevBtn = frame.querySelector(".carousel-prev");
+        const nextBtn = frame.querySelector(".carousel-next");
+        const navDots = Array.from(frame.querySelectorAll(".carousel-dots li"));
+
+        let imageCounter = 1;
+
+        function getImagesPlusClones() {
+            let images = frame.querySelectorAll(".carousel-slide img");
+
+            const firstClone = images[0].cloneNode();
+            const lastClone = images[images.length - 1].cloneNode();
+
+            firstClone.className = "first-clone";
+            lastClone.className = "last-clone";
+
+            // we need clones to make an infinite loop effect
+            carouselSlide.append(firstClone);
+            carouselSlide.prepend(lastClone);
+
+            // must reassign images to include the newly cloned images
+            images = frame.querySelectorAll(".carousel-slide img");
+
+            return images;
+        }
+
+        function initializeNavDots() {
+            if (navDots.length) navDots[0].classList.add("active-dot");
+        }
+
+        function initializeCarousel() {
+            carouselSlide.style.transform = "translateX(-100%)";
+        }
+
+        function slideForward() {
+            // first limit counter to prevent fast-change bugs
+            if (imageCounter >= carouselImages.length - 1) return;
+            carouselSlide.style.transition = "transform 400ms";
+            imageCounter++;
+            carouselSlide.style.transform = `translateX(-${100 * imageCounter}%)`;
+        }
+
+        function slideBack() {
+            // first limit counter to prevent fast-change bugs
+            if (imageCounter <= 0) return;
+            carouselSlide.style.transition = "transform 400ms";
+            imageCounter--;
+            carouselSlide.style.transform = `translateX(-${100 * imageCounter}%)`;
+        }
+
+        function makeLoop() {
+            // instantly move from clones to originals to produce 'infinite-loop' effect
+            if (carouselImages[imageCounter].classList.contains("last-clone")) {
+                carouselSlide.style.transition = "none";
+                imageCounter = carouselImages.length - 2;
+                carouselSlide.style.transform = `translateX(-${100 * imageCounter}%)`;
+            }
+
+            if (carouselImages[imageCounter].classList.contains("first-clone")) {
+                carouselSlide.style.transition = "none";
+                imageCounter = carouselImages.length - imageCounter;
+                carouselSlide.style.transform = `translateX(-${100 * imageCounter}%)`;
+            }
+        }
+
+        function goToImage(e) {
+            carouselSlide.style.transition = "transform 400ms";
+            imageCounter = 1 + navDots.indexOf(e.target);
+            carouselSlide.style.transform = `translateX(-${100 * imageCounter}%)`;
+        }
+
+        function highlightCurrentDot() {
+            navDots.forEach((dot) => {
+                if (navDots.indexOf(dot) === imageCounter - 1) {
+                    dot.classList.add("active-dot");
+                } else {
+                    dot.classList.remove("active-dot");
+                }
+            });
+        }
+
+        function addBtnListeners() {
+            nextBtn.addEventListener("click", slideForward);
+            prevBtn.addEventListener("click", slideBack);
+        }
+
+        function addNavDotListeners() {
+            navDots.forEach((dot) => {
+                dot.addEventListener("click", goToImage);
+            });
+        }
+
+        function addTransitionListener() {
+            carouselSlide.addEventListener("transitionend", () => {
+                makeLoop();
+                highlightCurrentDot();
+            });
+        }
+
+        function autoAdvance() {
+            let play = setInterval(slideForward, 5000);
+
+            frame.addEventListener("mouseover", () => {
+                clearInterval(play); // pause when mouse enters carousel
+            });
+
+            frame.addEventListener("mouseout", () => {
+                play = setInterval(slideForward, 5000); // resume when mouse leaves carousel
+            });
+
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden) {
+                    clearInterval(play); // pause when user leaves page
+                } else {
+                    play = setInterval(slideForward, 5000); // resume when user returns to page
+                }
+            });
+        }
+
+        function buildCarousel() {
+            initializeCarousel();
+            initializeNavDots();
+            addNavDotListeners();
+            addBtnListeners();
+            addTransitionListener();
+            autoAdvance();
+        }
+
+        buildCarousel();
+    }
+
+    carouselFrames.forEach((frame) => makeCarousel(frame));
+    $(document).ready(function () {
+        $("#mobileMenuTrigger").click(function () {
+            $(this).toggleClass("open");
+            $("#mobileMenu").toggleClass("open");
+        });
+        $("main").click(function () {
+            $("#mobileMenuTrigger.open").toggleClass("open");
+            $("#mobileMenu").removeClass("open");
+        });
+    });
+
+</script>
+
+
+</html>

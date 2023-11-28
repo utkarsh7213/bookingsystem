@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account - AMIST</title>
+  <link rel="stylesheet" href="/styles/output.css" />
+  <script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js'></script>
+</head>
+
+<body>
+  <div class="flex justify-center items-center h-[97vh]">
+    <div class="w-full md:w-[70%] border border-gray-300 rounded-lg h-screen md:h-[80vh] flex flex-col md:flex-row">
+      <%- include('../components/settings_sidebar'); %>
+
+        <% if(user_res) { %>
+          <div class="w-full md:w-[70%] h-full overflow-y-auto">
+              <form action="/profile/confirm_trip" method="post">
+
+              <div class="px-8 space-y-6">
+                <div class="text-center text-xl font-semibold text-[#1c425f] my-2">
+                  My Trip
+                </div>
+
+                <div class="flex space-x-3">
+                  <div class="flex flex-col ">
+                    <label for="">First name <span class="text-red-400">*</span></label>
+                    <input placeholder="Name"
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" value="<%- user_res.firstName %>" name="firstName" readonly>
+                  </div>
+                  <div class="flex flex-col ">
+                    <label for="">Last name <span class="text-red-400">*</span></label>
+                    <input placeholder="Surname"
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" value="<%- user_res.lastName %>" name="lastName" readonly>
+                  </div>
+                  <div class="flex flex-col ">
+                    <label for="">Middle name </label>
+                    <input placeholder=""
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" name="middleName" readonly>
+                  </div>
+                </div>
+                <div class="flex space-x-3">
+                  <div class="flex flex-col ">
+                    <label for="dobUk" class="control-label">Date of birth <span class="text-red-400">*</span></label>
+                    <input id="dobUk" name="dob"
+                      class="w-[200px] form-control input-lg js-date--west outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" placeholder="DD/MM/YYYY" value="<%- user_res.dob %>" readonly>
+                  </div>
+                  <div class="flex flex-col ">
+                    <label for="">Gender </label>
+                    <select
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1 "
+                      id="cars" name="gender">
+
+                      <option value="none" selected> <%- user_res.gender %> </option>
+                      <!-- <option value="female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="not">Rather not to say</option> -->
+
+                    </select>
+                  </div>
+                </div>
+                <div class="flex space-x-3">
+                  <div class="flex flex-col ">
+                    <label for="">E-mail <span class="text-red-400">*</span></label>
+                    <input placeholder=""
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="email" value="<%- user_res.email %>" name="email" readonly>
+                  </div>
+                  <div class="flex flex-col ">
+                    <label for="">Phone number </label>
+                    <input placeholder=""
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" value="<%- user_res.phoneno %>" name="phoneno" readonly>
+                  </div>
+                </div>
+                <div class="flex space-x-3">
+                  <div class="flex flex-col ">
+                    <label for="">Nationality <span class="text-red-400">*</span></label>
+                    <input placeholder=""
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="email" value="<%- user_res.country %>" name="country" readonly>
+                  </div>
+                </div>
+                <div class="flex space-x-3">
+                  <div class="flex flex-col ">
+                    <label for="">Passport EXP date* <span class="text-red-400">*</span></label>
+                    <input placeholder=""
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" name="Passport_exp_date" readonly>
+                  </div>
+                  <div class="flex flex-col ">
+                    <label for="">Travel document number</label>
+                    <input placeholder=""
+                      class="w-[200px] outline-none bg-transparent border-[2px] pl-4 border-gray-300 rounded-2xl p-1"
+                      type="text" name="travel_document" readonly>
+                  </div>
+                </div>
+                <div class="flex justify-center my-6">
+                  <button class="bg-[#0f3256] font-[700] text-white p-3 px-14 rounded-3xl">SUBMIT</button>
+                </div>
+
+              </div>
+
+            </form>
+            </div>
+          <% } %>
+
+    </div>
+  </div>
+  <script src="/scripts/profile.js"></script>
+</body>
+
+</html>

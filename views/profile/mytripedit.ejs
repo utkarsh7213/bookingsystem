@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account - AMIST</title>
+  <link rel="stylesheet" href="/styles/output.css" />
+  <script src="https://kit.fontawesome.com/fea6aa327a.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js'></script>
+</head>
+
+<body>
+  <div class="flex justify-center items-center h-[97vh]">
+    <div class="w-full md:w-[70%] border border-gray-300 rounded-lg h-screen md:h-[80vh] flex flex-col md:flex-row">
+
+      <!-- sidebar starts here -->
+      <%- include('../components/settings_sidebar', {user_data : user_loggedIn}) %>
+      <!-- sidebar ends here -->
+
+      <div class="w-full md:w-[70%] h-full overflow-y-auto">
+        
+        <% if (trip_data) { %>
+          <div class="text-center text-xl font-semibold text-[#1c425f] my-2">
+            My Trip
+          </div>
+          <% for (let i = 0; i < trip_data.length; i++) { %>
+
+          <div class="flex flex-col items-center space-y-4 justify-center" style="margin-bottom: 10px;">
+                <div class="bg-[#54ace2] h-[px] w-[500px] rounded-3xl flex justify-center items-center p-1">
+                  <div class="w-[98%] h-[98%] bg-gray-100 rounded-3xl py-2">
+                    <div class="flex justify-between px-5">
+                      <h1 class="uppercase font-[700] text-[#0f327a]"><%- trip_data[i].title %></h1>
+                      <button class="bg-[#0f3256] rounded-2xl text-white font-semibold px-6">EDIT</button>
+                    </div>
+                    <div class="space-y-1 px-5 my-2">
+                      <div class="flex items-center space-x-2 text-[#153244]">
+                        <img src="/images/caleder.png" alt="" class="w-5 h-5">
+                        <p class=""><span class="font-semibold">Date:</span> <%- trip_data[i].booked_date %>  </p>
+                      </div>
+                      <div class="flex items-center space-x-2 text-[#153244]">
+                        <img src="/images/users.svg" alt="" class="w-5 h-5">
+                        <div>
+                          <% if (trip_data[i].seniors_quantity) { %>
+                            <p>Seniors: <%- trip_data[i].seniors_quantity %></p>
+                          <% } %>
+                          <% if (trip_data[i].youths_quantity) { %>
+                            <p>Youths: <%- trip_data[i].youths_quantity %></p>
+                          <% } %>
+                          <% if (trip_data[i].children_quantity) { %>
+                            <p>Childrens: <%- trip_data[i].children_quantity %></p>
+                          <% } %>
+                          <% if (trip_data[i].adults_quantity) { %>
+                            <p>Adults: <%- trip_data[i].adults_quantity %></p>
+                          <% } %>
+                          <% if (trip_data[i].infants_quantity) { %>
+                            <p>Infants: <%- trip_data[i].infants_quantity %></p>
+                          <% } %>
+                        </div>
+                      </div>
+                      <div class="flex items-center space-x-2 text-[#153244]">
+                        <img src="/images/time.svg" alt="" class="w-5 h-5">
+                        <p class=""> <%- trip_data[i].travel_time %> hours </p>
+                      </div>
+                      <div class="flex items-center space-x-2 text-[#153244]">
+                        <img src="/images/car.svg" alt="" class="w-5 h-5">
+                        <p class="">Private transport for 1-4ppl.</p>
+                      </div>
+                    </div>
+                    <div class="h-px w-full bg-gray-300"></div>
+                    <div class="px-5 my-2">
+                      <div class="flex space-x-2 text-[#153244]">
+                        <img src="/images/dollar.png" alt="" class="w-5 h-5">
+                        <div>
+                          <% if (trip_data[i].seniors_quantity) { %>
+                            <p><%- trip_data[i].seniors_quantity %> Seniors x HK$<%- trip_data[i].senior_charges %></p>
+                          <% } %>
+                          <% if (trip_data[i].youths_quantity) { %>
+                            <p><%- trip_data[i].youths_quantity %> Youths x HK$<%- trip_data[i].youth_charges %></p>
+                          <% } %>
+                          <% if (trip_data[i].children_quantity) { %>
+                            <p><%- trip_data[i].children_quantity %> Childrens x HK$<%- trip_data[i].children_charges %></p>
+                          <% } %>
+                          <% if (trip_data[i].adults_quantity) { %>
+                            <p><%- trip_data[i].adults_quantity %> Adults x HK$<%- trip_data[i].adult_charges %></p>
+                          <% } %>
+                          <% if (trip_data[i].infants_quantity) { %>
+                            <p><%- trip_data[i].infants_quantity %> Infants x HK$<%- trip_data[i].infant_charges %></p>
+                          <% } %>
+                          <p class="">Transfer x HK$</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p class="font-[700] text-right text-[#0f3256]">TOTAL: HK$<%- trip_data[i].total_charges %></p>
+                      </div>
+                    </div>
+                    <div class="h-px w-full bg-gray-300"></div>
+                    <div class="flex items-center justify-center mt-1 my-1">
+                      <textarea rows="4" cols="50" class="bg-[#b7c1c2] rounded-3xl pl-3 h-[px] placeholder- w-[97%]"
+                        placeholder="Additional requests and questions here..."></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              <% } %>         
+              <div class="flex flex-col items-center space-y-3 my-6">
+                <button class="bg-green-600 font-[700] text-white p-3 px-6 rounded-3xl">KEEP BUILDING MY TRIP</button>
+                <button class="bg-[#0f3256] font-[700] text-white p-3 px-6 rounded-3xl" onclick="window.open('/profile/mytrip_confirm', '_self')">SUBMIT REQUEST</button>
+              </div>
+            <% } %>
+        </div>
+      </div>
+    </div>
+
+    <script src="/scripts/profile.js"></script>
+
+</body>
+
+<script>
+
+</script>
+
+</html>

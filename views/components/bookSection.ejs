@@ -1,0 +1,161 @@
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
+<% if(message.length===0) { %>
+    <div class="my-6">
+        <p class="text-black text-3xl font-[400]">Reserve Your Spot</p>
+    </div>
+    <div class="flex space-x-2 items-center">
+        <div
+            class="datepicker bg-white border border-gray-300 rounded-2xl w-[60px] p-2 flex items-center justify-center space-x-2 cursor-pointer">
+            <div class="pl-3">
+                <i class="fa-regular fa-calendar-days"></i>
+            </div>
+
+            <input readonly type="text" id="datepicker_input" class="outline-none" placeholder="Select a date">
+            <button class="cancel-button" style="display: none;">Cancel</button>
+            <button class="apply-button" style="display: none;" >Apply</button>
+            <div class="datepicker-popup" style="display: none;"></div>
+        </div>
+
+        <!-- Count card -->
+
+        <div class="custom-select p-1">
+            <div
+                class="select-label bg-white border border-gray-300 rounded-2xl w-[60px] p-2 flex items-center justify-center space-x-2 cursor-pointer">
+                <i class="fa-solid fa-users select-label"></i>
+                <span class="totalCount select-label totalPeople"> </span>
+            </div>
+
+            <div class="options absolute bg-white shadow-md shadow-black rounded-lg p-3 w-[300px]"
+                style="height: 420px;">
+
+                <ul class="flex flex-col  space-y-3">
+                    <li class="flex justify-between items-center">
+                        <span class="option-text" data-senior="<%- tour_res.senior_per_charge %>">
+                            Seniors <p hidden> x HK$<%- tour_res.senior_per_charge %> </p>   
+                            <!-- <p style="font-weight: 300;">Age <%- tour_res.seniors_age %> </p> -->
+                        </span>
+                        
+                        <div class="flex items-center space-x-3">
+                            <button
+                                class="subtract w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">-</button>
+                            <span class="count">0</span>
+                            <button
+                                class="add w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">+</button>
+                        </div>
+
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="option-text" data-youth="<%- tour_res.youth_per_charge %>">
+                            Youths <p hidden> x HK$<%- tour_res.youth_per_charge %> </p> 
+                            <!-- <p style="font-weight: 300;">Age <%- tour_res.youths_age %></p> -->
+                         </span>
+                        
+                        <div class="flex items-center space-x-3">
+                            <button
+                                class="subtract w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">-</button>
+                            <span class="count">0</span>
+                            <button
+                                class="add w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">+</button>
+                        </div>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="option-text" data-children="<%- tour_res.children_per_charge %>">
+                           Children <p hidden> x HK$<%- tour_res.children_per_charge %> </p> 
+                            <!-- <p style="font-weight: 300;">Age <%- tour_res.childrens_age %></p>  -->
+                        </span>
+                        <div class="flex items-center space-x-3">
+                            <button
+                                class="subtract w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">-</button>
+                            <span class="count">0</span>
+                            <button
+                                class="add w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">+</button>
+                        </div>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="option-text" data-adults="<%- tour_res.adult_per_charge %>">
+                            Adults <p hidden> x HK$<%- tour_res.adult_per_charge %> </p>  
+                            <!-- <p style="font-weight: 300;">Age <%- tour_res.adults_age %></p> -->
+                        </span>
+
+                        <div class="flex items-center space-x-3">
+                            <button
+                                class="subtract w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">-</button>
+                            <span class="count">0</span>
+                            <button
+                                class="add w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">+</button>
+                        </div>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="option-text" data-infants="<%- tour_res.infant_per_charge %>">
+                            Infants <p hidden> x HK$<%- tour_res.infant_per_charge %> </p>
+                            <!-- <p style="font-weight: 300;">Age <%- tour_res.infants_age %></p>  -->
+                        </span>
+                        <div class="flex items-center space-x-3">
+                            <button
+                                class="subtract w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">-</button>
+                            <span class="count">0</span>
+                            <button
+                                class="add w-12 h-12 rounded-full bg-black text-white text-4xl flex  justify-center">+</button>
+                        </div>
+                    </li>
+                </ul>
+                <br><br>
+                <a href="javascript:void(0)" id="update_settings"
+                    class="bg-yellow-400 p-2 w-[180px] rounded-3xl font-semibold" style="    margin-left: 70px;
+                    cursor: pointer;
+                    padding: 18px;" onclick="update_sett()"> Update </a>
+            </div>
+
+        </div>
+
+        <!-- Count card end -->
+
+    </div>
+
+
+    <div class="my-4">
+
+        <div class="card flex flex-col space-y-4 px-6 py-2">
+            <!-- <input type="radio" name="card-selection" id="card1" class="card-selection"> -->
+            <h4 style="font-weight: bold;"><%- tour_res.loc_ation %></h4>
+            <span class="totalCount"> </span>
+            <p class="card-text">This is a card with some text.</p>
+            <p class="">No additional charges or booking fees</p>
+            <p class="price" style="display: none;"> </p>
+            <div class="bg-blue-400 w-[80px] text-center rounded-3xl p-2 text-white time" style="width: fit-content; display: none;" id="time"> </div>
+        </div>
+    </div>
+
+    <% } %>
+
+        <div class="my-4 flex items-center justify-center space-x-4">
+
+            <% if (message.length> 0) { %>
+                <a href="/profile/my_trips" style="background-color: lightblue; padding: 10px; border-radius: 5px; ">
+                    Go to Trip </a>
+                <img src="/images/greentick.svg" alt="" class="w-[200px] h-[200px]">
+
+                <% } else { %>
+                    <button class="bg-yellow-400 p-2 w-[180px] rounded-3xl font-semibold add_trip" id="addtrip" data-tourid="<%- tour_res.tour_id %>">
+                        Add to My Trip
+                    </button>
+                    <!-- <a href="javascript:void(0)" class="bg-yellow-400 p-2 w-[180px] rounded-3xl font-semibold add_trip" id="addtrip" data-tourid="<%- tour_res.tour_id %>"> Add to My Trip </a> -->
+                    <button class="bg-yellow-400 p-2 w-[180px] rounded-3xl font-semibold" >
+                        Book Now
+                    </button>
+                    <script src="/scripts/my_trip_data.js"></script>
+                    <script src="/scripts/user_count.js"> </script>
+                    <% } %>
+        </div>
+        
+        <script>
+
+            function update_sett() {
+                let customSelect = document.querySelector('.custom-select');
+                customSelect.classList.remove('active');
+            }
+
+        </script>

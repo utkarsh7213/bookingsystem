@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IndexPage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+</head>
+
+<body> 
+    <% if(user_loggedIn) { %>
+        <%- include('./components/navbar', {loggedIn : user_loggedIn}) %>
+          <% } else { %>
+            <%- include('./components/navbar', {loggedIn : '' }) %>
+              <% } %>
+
+                        <div class="h-[60vh] w-full bg-no-repeat bg-center md:bg-cover"
+                            style="background-image: url(/images/bg.webp)">
+                            <div class="flex-col flex justify-center items-center h-full space-y-8">
+                                <div class="flex flex-col space-y-3">
+                                    <p class="text-4xl md:text-5xl font-semibold text-center text-white">
+                                        DISCOVER THE WONDERS
+                                    </p>
+                                    <p class="text-4xl md:text-5xl font-semibold text-center text-white">
+                                        OF HONG KONG
+                                    </p>
+                                </div>
+
+                                <p class="text-xl text-center text-white">BOOK YOUR ADVENTURE NOW</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex md:flex-row flex-col md:justify-around items-center my-8 md:my-10 space-y-8 md:space-y-0">
+                            <div class="flex w-[400px] space-x-2">
+                                <div class="">
+                                    <img src="/images/user.png" width="250" alt="" />
+                                </div>
+
+                                <div class="flex-col flex space-y-1">
+                                    <p class="font-semibold text-black">Personalized Experiences</p>
+                                    <p class="">
+                                        Every traveler is unique and we always go the extra mile to tailor
+                                        your journey according to your preferences. Ensuring that your trip
+                                        to Hong Kong is truly one-of-a-kind and suites your interests.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex w-[400px] space-x-2">
+                                <div class="">
+                                    <img src="/images/local.png" width="250" alt="" />
+                                </div>
+
+                                <div class="flex-col flex space-y-1">
+                                    <p class="font-semibold text-black">Local Connections</p>
+                                    <p class="">
+                                        Through our vast network of local partners and guides, we provide
+                                        you with access to hidden gems in Hong Kong with the best prices.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex w-[400px] space-x-2">
+                                <div class="">
+                                    <img src="/images/planning.png" width="250" alt="" />
+                                </div>
+
+                                <div class="flex-col flex space-y-1">
+                                    <p class="font-semibold text-black">Seamless Planning</p>
+                                    <p class="">
+                                        From start to finish, we handle all the details of your travel
+                                        arrangements to ensure a smooth and hassle-free experience, allowing
+                                        you to focus on creating unforgettable memories.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center justify-around space-y-12 md:space-y-0">
+                            <div class="w-[450px] h-[330px] bg-cover flex justify-center items-center"
+                                style="background-image: url(/images/05.jpg)">
+                                <div class="bg-white hover:bg-gray-200 p-3">
+                                    <a href="" class="text-[#3F80A9] px-10 text-xl">Flight </a>
+                                </div>
+                            </div>
+                            <div class="w-[450px] h-[330px] bg-cover flex justify-center items-center"
+                                style="background-image: url(/images/02.jpg)">
+                                <div class="bg-white hover:bg-gray-200 p-3">
+                                    <a href="" class="text-[#3F80A9] px-10 text-xl">Stay</a>
+                                </div>
+                            </div>
+                            <div class="w-[450px] h-[330px] bg-cover flex justify-center items-center" style="
+              background-image: url(/images/5bfb6f_c667d0c9bd634b1aa2b29311795f3c51.jpg);
+            ">
+                                <div class="bg-white hover:bg-gray-200 p-3">
+                                    <a href="" class="text-[#3F80A9] px-10 text-xl">Guidebook</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-black font-semibold text-center text-2xl my-14">
+                            <p class="">New Adventures for 2023</p>
+                            <p class="">Explore Hong Kong with our new tour collection.</p>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <div class="flex flex-col md:flex-row">
+                                <div
+                                    class="w-full md:w-[50%] flex flex-col items-center px-10 py-10 md:py-0 bg-blue-100 justify-center">
+                                    <div class="space-y-8">
+                                        <p class="text-5xl">My Place</p>
+                                        <p class="">
+                                            The guest room is cozy and bright with a comfortable double bed,
+                                            couch and plenty of room to lounge. You'll have the privacy you
+                                            need. Amenities: wifi, A/C, telephone, TV, Kitchen
+                                        </p>
+                                        <button class="bg-[#3fA971] p-2 text-white px-6">Book Now</button>
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-[50%] h-[400px]" style="background-image: url(images/05.jpg)">
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row-reverse">
+                                <div
+                                    class="w-full md:w-[50%] flex flex-col items-center px-10 py-10 md:py-0 justify-center">
+                                    <div class="space-y-8">
+                                        <p class="text-5xl">Location</p>
+                                        <p class="">
+                                            My apartment is located right in the heart of Copacabana, Rio.
+                                            You'll find tons of amazing spots to eat and drink, plus
+                                            transportation is very easy. The beach is only 5 min away and
+                                            there are a few parks in the area. If you ever need anything, I'd
+                                            be happy to show you around!
+                                        </p>
+                                        <button class="bg-[#3fA971] p-2 text-white px-6">View Map</button>
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-[50%] h-[400px] bg-contain bg-repeat-x" style="
+                background-image: url(images/5bfb6f_c667d0c9bd634b1aa2b29311795f3c51.jpg);
+              "></div>
+                            </div>
+                            <div class="flex flex-col md:flex-row">
+                                <div
+                                    class="w-full md:w-[50%] flex flex-col items-center px-10 py-10 md:py-0 bg-blue-100 justify-center">
+                                    <div class="space-y-8">
+                                        <p class="text-5xl">Don't Miss</p>
+                                        <p class="">
+                                            You have to go Boteco Belmonte. Besides the amazing food, your
+                                            glass will never ever be empty! Very casual & great atmosphere :)
+                                        </p>
+                                        <button class="bg-[#3fA971] p-2 text-white px-6">Book Now</button>
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-[50%] h-[400px]" style="background-image: url(images/02.jpg)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="2xl:mx-auto 2xl:container mx-4 py-16">
+                                <div class="w-full relative flex items-center justify-center">
+                                    <img src="https://i.ibb.co/4sYZ8gC/img-2.png" alt="dining"
+                                        class="w-full h-full absolute z-0 hidden xl:block" />
+                                    <img src="https://i.ibb.co/bbS3J9C/pexels-max-vakhtbovych-6301182-1.png"
+                                        alt="dining" class="w-full h-full absolute z-0 hidden sm:block xl:hidden" />
+                                    <img src="https://i.ibb.co/JKkzGDs/pexels-max-vakhtbovych-6301182-1.png"
+                                        alt="dining" class="w-full h-full absolute z-0 sm:hidden" />
+                                    <div
+                                        class="bg-gray-800 bg-opacity-80 md:my-16 lg:py-16 py-10 w-full md:mx-24 md:px-12 px-4 flex flex-col items-center justify-center relative z-40">
+                                        <h1 class="text-4xl font-semibold leading-9 text-white text-center">
+                                            Sign Up. Stay Updated. Travel.
+                                        </h1>
+                                        <p class="text-base leading-normal text-center text-white mt-6">
+                                            GET OUR E-MAIL NEWSLETTER
+                                        </p>
+                                        <div
+                                            class="sm:border border-white flex-col sm:flex-row flex items-center lg:w-5/12 w-full mt-12 space-y-4 sm:space-y-0">
+                                            <input required
+                                                class="border border-white sm:border-transparent text-base w-full font-medium leading-none text-white p-4 focus:outline-none bg-transparent placeholder-white"
+                                                placeholder="Email Address" id="subscribe_email"/>
+                                            <button
+                                                class="focus:outline-none focus:ring-offset-2 focus:ring border border-white sm:border-transparent w-full sm:w-auto bg-white py-4 px-6 hover:bg-opacity-75">
+                                                Subscribe
+                                            </button>
+                                        </div>
+
+                                        <div class="bg-gray-300 p-3 my-6 rounded-2xl space-x-8 px-12">
+                                            <a href="" class=""><i class="fa-brands fa-instagram text-2xl"></i></a>
+                                            <a href="" class=""><i class="fa-brands fa-facebook text-2xl"></i></a>
+                                            <a href="" class=""><i class="fa-brands fa-linkedin text-2xl"></i></a>
+
+
+
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <footer class="bg-[#636E78] md:h-[] w-full">
+                            <div class="flex md:flex-row flex-col justify-around items-center space-y-8">
+                                <div class="flex flex-row space-x-16 md:space-x-40">
+                                    <div class="flex-col flex">
+                                        <p class="text-white font-semibold text-2xl py-4">General</p>
+                                        <div class="flex-col flex text-white space-y-1 text-xl">
+                                            <a href="" class="">About Us</a>
+                                            <a href="" class="">Home</a>
+                                            <a href="" class="">Sign Up</a>
+                                            <a href="" class="">Contact us</a>
+                                            <a href="" class="">FAQ</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex-col flex">
+                                        <p class="text-white font-semibold text-2xl py-4">Trips</p>
+                                        <div class="flex-col flex text-white space-y-1 text-xl">
+                                            <a href="" class="">Tours</a>
+                                            <a href="" class="">Excursions</a>
+                                            <a href="" class="">Hotels</a>
+                                            <a href="" class="">Flight</a>
+                                            <a href="" class="">Macau</a>
+                                            <a href="" class="">Guidebook</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-[#3F80A9] w-[300px] h-[250px] rounded-3xl flex items-center flex-col justify-center text-center space-y-4">
+                                    <p class="text-2xl text-white font-semibold">Travel Agents</p>
+                                    <p class="text-xl text-white">
+                                        Become our partner! Sell tours and excursions and earn up to 30%!
+                                    </p>
+
+                                    <button class="bg-[#3fA971] p-2 px-10 font-semibold text-xl rounded-3xl">
+                                        Agent Sign-up
+                                    </button>
+                                </div>
+
+                                <div class="flex flex-col space-y-6">
+                                    <div class="flex flex-row space-x-3 items-center">
+                                        <i class="fa-solid fa-globe text-2xl"></i>
+                                        <a href="https://amisthk.ru/"
+                                            class="text-white text-xl underline">https://amisthk.ru/</a>
+                                    </div>
+                                    <div class="flex flex-row space-x-3 items-center">
+                                        <i class="fa-solid fa-envelope text-2xl"></i>
+                                        <a href="mailto:info@amisthk.ru"
+                                            class="text-white text-xl underline">info@amisthk.ru</a>
+                                    </div>
+                                    <div class="flex flex-row space-x-3 items-center">
+                                        <i class="fa-solid fa-phone text-2xl"></i>
+                                        <a href="#" class="text-white text-xl underline">+852-55-96-28-96</a>
+                                    </div>
+                                    <div class="flex flex-row space-x-3">
+                                        <i class="fa-solid fa-location-dot text-2xl"></i>
+                                        <div class="text-white text-sm underline">
+                                            <p class="w-[200px]">
+                                                Room 1509, 1511, Unit A, Floor 15 MAI SHUN IND BLDG 18-24 Kwai
+                                                Chung rd., N. T., Hong Kong
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-white text-sm py-6 space-x-5 pl-2 md:pl-10">
+                                <a href="" class="">Cookies Policy</a>
+                                <a href="" class="">Privacy Policy</a>
+                                <a href="" class="">Booking Terms & Condition</a>
+                            </div>
+                        </footer>
+
+</body>
+
+</html>
